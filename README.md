@@ -1,5 +1,5 @@
 # 🌿 Simplicity
-### ----- my personal, cozy configs -----
+### ---- my personal, cozy configs ----
 
 ## specs:
   - OS : [Arch Linux](https://archlinux.org/)
