@@ -30,4 +30,5 @@
 
 ## copy this repo and add the configs to your .conf!
 
-## this is a work in progress, be careful
+## Note : 
+- this is a work in progress, be careful if you plan to use it
