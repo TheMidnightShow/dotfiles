@@ -1,0 +1,115 @@
+/* --------------------- */
+/* ------ general ------ */
+/* --------------------- */
+
+* {
+  all: unset;
+}
+
+window {
+   background: #3c3836;
+   font-family: JetBrainsMono Nerd Font;
+   font-size: 18;
+}
+
+/* --------------------- */
+/* ----- workspace ----- */
+/* --------------------- */
+
+.active {
+  color: #ebdbb2;
+  font-size: 22px;
+}
+
+.inactive {
+  color: #928374;
+  font-size: 20px;
+}
+
+/* --------------------- */
+/* ---- top widgets ---- */
+/* --------------------- */
+
+.time {
+  margin: 0px 0px 8px 0px;
+  padding: 8px 9px 8px 8px;
+  border-radius: 0px 0px 10px 10px;
+  color: #222222;
+  background: #ebdbb2;
+}
+
+.date {
+  margin: 0px 0px 8px 0px;
+  background: #d65d0e;
+  color: #222222;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.batt {
+  background: #cc241d;
+  color: #222222;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.update {
+  margin: 8px 0px 8px 0px;
+  background: #928374;
+  color: #222222;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* --------------------- */
+/* --- bottom widget --- */
+/* --------------------- */
+
+.bottom-icon {
+  margin-top: 3px;
+  padding: 8px 0px 5px 0px;
+  font-size: 20px;
+  background: #ebdbb2;
+  color: #222222;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.ram {
+  margin: 8px 0px 8px 0px;
+  background: #d65d0e;
+  color: #222222;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.cpu {
+  margin-top: 8px;
+  background: #cc241d;
+  color: #222222;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.vol {
+  margin-top: 8px;
+  background: #928374;
+  color: #222222;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.bright {
+  margin-top: 8px;
+  background: #d3869b;
+  color: #222222;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+

@@ -1,0 +1,256 @@
+;; abandon all hope, ye who enters here...
+
+(defvar eww "eww")
+
+;; ---------------------------------------------- ;;
+;; ------------------ workspace ----------------- ;;
+;; ---------------------------------------------- ;;
+
+(defvar wsp "")
+(defwidget workspace []
+  (literal :content wsp))
+
+;; ---------------------------------------------- ;;
+;; ---------------- bottom-widget --------------- ;;
+;; ---------------------------------------------- ;;
+
+(defvar bright "")
+
+(defpoll brightper 
+  :interval "1s" "brightnessctl | grep Current | awk '{ print $4 }' | tr -d '()'")
+
+(defwidget brightness []
+  (box 
+    :orientation "v" 
+    :halign "center" 
+    :class "bright"
+    bright brightper))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+(defvar vol "墳")
+
+(defpoll volper 
+  :interval "1s" "amixer get Master | grep Mono: | awk '{ print $4 }' | tr -d '[]'")
+
+(defwidget volume []
+  (box 
+    :orientation "v" 
+    :halign "center" 
+    :class "vol"
+    vol volper))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+(defvar mem-icon "﬙")
+
+(defpoll used 
+  :interval "1s" "free -h | awk '(NR==2){print $2}' | tr -d 'GiM'")
+
+(defpoll free 
+  :interval "1s" "free -h | awk '(NR==2){print $3}' | tr -d 'GiM'")
+
+(defwidget ram []
+  (box 
+    :orientation "v" 
+    :halign "center" 
+    :class "ram"
+    used mem-icon free
+  ))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+(defvar cpu-icon "ﮕ")
+
+(defwidget cpu []
+  (box
+    :orientation "v"
+    :halign "center"
+    :class "cpu"
+    cpu-icon "${round(EWW_CPU.avg, 0)}%"
+  ))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+(defpoll day 
+  :interval "24h" "date +%a")
+
+(defpoll month 
+  :interval "24h" "date +%b")
+
+(defpoll day-month 
+  :interval "24h" "date +%d")
+
+(defwidget date []
+
+  (box 
+    :orientation "v" 
+    :halign "center" 
+    :class "date"
+    day month day-month))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+(defvar bottom "")
+
+(defwidget bottom []
+
+	(eventbox	
+    :onhover "${eww} update bottom=true"	
+		:onhoverlost "${eww} update bottom=false" 
+
+    (box		
+      :orientation "v"					
+      :space-evenly "false" 	 
+      :vexpand "false" 	
+      :class "bottommenu"
+
+      (revealer	
+        :transition "slideup"				
+        :reveal bottom			 
+        :duration "650ms"
+        (box		
+
+          :orientation "v"					
+          :space-evenly "false"
+          (brightness)
+          (volume)
+          (cpu)
+          (ram)))
+          (box
+          :class "bottom-icon" ""))))
+
+;; ---------------------------------------------- ;;
+;; ----------------- top widget ----------------- ;;
+;; ---------------------------------------------- ;;
+
+(defpoll hour_1 :interval "1h" "date +%H")
+
+(defpoll hour_2 :interval "30s" "date +%M")
+
+(defwidget time []
+
+  (box 
+    :orientation "v" 
+    :class "time"
+    :halign "center" 
+    :spacing "2"
+    hour_1 hour_2))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+(defvar batt-icon "")
+
+(defpoll battstatus 
+  :interval "15s" "cat /sys/class/power_supply/BAT1/capacity")
+
+(defwidget battery []
+
+  (box 
+    :orientation "v" 
+    :halign "center" 
+    :class "batt"
+    batt-icon battstatus))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+(defvar update-icon "")
+
+(defpoll checkupdate 
+  :interval "1s" "checkupdates | wc -l")
+
+(defwidget update []
+
+  (box 
+    :orientation "v" 
+    :halign "center" 
+    :class "update"
+    update-icon checkupdate))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+(defvar top "")
+
+(defwidget top []
+
+	(eventbox	
+    :onhover "${eww} update top=true"	
+		:onhoverlost "${eww} update top=false" 
+
+	  (box		
+      :orientation "v"					
+			:space-evenly "false" 	 
+			:vexpand "false" 	
+			:class "topmenu"
+
+      (time)
+      
+	    (revealer	
+        :transition "slidedown"				
+				:reveal top	 
+				:duration "650ms"
+
+	    (box		
+        :orientation "v"					
+		    :space-evenly "false"
+	      (date)
+        (battery)
+        (update)
+        )))))
+
+;; ---------------------------------------------- ;;
+;; ----------------- main widget ---------------- ;;
+;; ---------------------------------------------- ;;
+
+(defwidget bar []
+
+  (centerbox 
+    :orientation "v"
+
+    (box 
+      :class "segment-top" 
+      :valign "start" 
+      (top))
+
+    (box 
+      :class "segment-center" 
+      :valign "center" 
+      (workspace))
+    
+    (box 
+      :class "segment-botton" 
+      :valign "end" 
+      (bottom))
+  )
+)
+
+;; ---------------------------------------------- ;;
+;; ------------------- eww bar ------------------ ;;
+;; ---------------------------------------------- ;;
+
+(defwindow bar_1
+  :monitor "eDP-1"
+  :geometry (geometry :x 0 :y 0 :width "40px" :height "100%")
+  :stacking "bg"
+  :reserve (struts :distance "40px" :side "left")
+  :windowtype "dock"
+  :wm-ignore false
+  (bar))
+
+;; ---------------------------------------------- ;;
+;; ---------------- eww dashboard --------------- ;;
+;; ---------------------------------------------- ;;
+
+(defwindow myCalendar
+ ;; :monitor "eDP-1"
+  :geometry (geometry :x 150 :y 100 :width "85%" :height "80%")
+;;  :stacking "bg"
+"testing")
