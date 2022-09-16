@@ -29,3 +29,5 @@
 - Bar : [EWW](https://github.com/elkowar/eww)
 
 ## copy this repo and add the configs to your .conf!
+
+## this is a work in progress, be careful
