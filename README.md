@@ -28,7 +28,8 @@
 - File Manager : [Thunar](https://wiki.archlinux.org/title/Thunar)
 - Bar : [EWW](https://github.com/elkowar/eww)
 
-## copy this repo and add the configs to your .conf!
+### copy this repo and add the configs to your .conf!
 
-## Note : 
-- this is a work in progress, be careful if you plan to use it
+### Notes : 
+- this is a work in progress, be careful if you plan to use it.
+- if you want to share any advice, feel free to do so.
