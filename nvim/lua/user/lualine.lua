@@ -1,7 +1,36 @@
+local hide_in_width = function()
+  return vim.fn.winwidth(0) > 80
+end
+
+
+
+local branch = {
+	"branch",
+	icons_enabled = true,
+	icon = "",
+}
+
+local diff = {
+	"diff",
+	colored = false,
+	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+  cond = hide_in_width
+}
+
+local diagnostics = {
+  "diagnostics",
+  sources = { "nvim_diagnostic"},
+  sections = { "error", "warn" },
+	symbols = { error = " ", warn = " " },
+	colored = false,
+	update_in_insert = false,
+	always_visible = true,
+}
+
 local mode = {
   "mode",
   fmt = function(str)
-    return "  " .. str .. " " 
+    return "  " .. str .. " "
   end,
 }
 
@@ -15,15 +44,15 @@ local location = {
 local progress = function()
   local current_line = vim.fn.line(".")
   local total_lines = vim.fn.line("$")
-  local chars = { 
-  " ········", 
-  " ·······", 
-  " ······", 
-  " ·····", 
-  " ····", 
-  " ···", 
-  " ··", 
-  " ·", 
+  local chars = {
+  " ········",
+  " ·······",
+  " ······",
+  " ·····",
+  " ····",
+  " ···",
+  " ··",
+  " ·",
   " "
   }
   local line_ratio = current_line / total_lines
@@ -56,7 +85,7 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = { mode },
-    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_b = { branch, diff, diagnostics },
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = { location },

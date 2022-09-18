@@ -1,8 +1,7 @@
-local fn = vim.fn
 
+local fn = vim.fn
 -- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim" if fn.empty(fn.glob(install_path)) > 0 then
 	PACKER_BOOTSTRAP = fn.system({
 		"git",
 		"clone",
@@ -46,7 +45,7 @@ return packer.startup(function(use)
 
   -- devicons
   use { 'kyazdani42/nvim-web-devicons' }
-  
+
   -- alpha
   use { 'goolord/alpha-nvim' }
 
@@ -55,7 +54,7 @@ return packer.startup(function(use)
 
   -- impatient
   use { 'lewis6991/impatient.nvim' }
-	
+
   -- lua line
   use { 'nvim-lualine/lualine.nvim' }
 
@@ -64,6 +63,41 @@ return packer.startup(function(use)
 
   -- telescope
   use { 'nvim-telescope/telescope.nvim' }
+
+  -- indent line
+  use { 'lukas-reineke/indent-blankline.nvim' }
+
+  -- auto pairs
+  use { 'windwp/nvim-autopairs' }
+
+  -- tree sitter
+  use { 'nvim-treesitter/nvim-treesitter' }
+
+  -- cmp
+  use { 'hrsh7th/nvim-cmp' }
+  use { 'hrsh7th/cmp-nvim-lsp' }
+  use { 'hrsh7th/cmp-buffer' }
+  use { 'hrsh7th/cmp-nvim-lua' }
+  use { 'hrsh7th/cmp-path' }
+  use { 'saadparwaiz1/cmp_luasnip' }
+
+  -- snippets
+  use { 'L3MON4D3/LuaSnip' }
+  use { 'rafamadriz/friendly-snippets' }
+
+  -- lsp
+  use { 'neovim/nvim-lspconfig' }
+  use { 'williamboman/nvim-lsp-installer' }
+  use { 'jose-elias-alvarez/null-ls.nvim' }
+
+  -- toggle term
+  use { 'akinsho/toggleterm.nvim' }
+
+  -- nvim tree
+  use { 'kyazdani42/nvim-tree.lua' }
+
+  -- bufferlien
+  use { 'akinsho/bufferline.nvim' }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
