@@ -1,0 +1,114 @@
+
+.myDashboard {
+
+  background: none;
+
+}
+
+.userData {
+
+  padding: 4px 15px;
+  background: #222222;
+  color: #ebdbb2;
+
+  min-width: 225px;
+  border-radius:  5px;
+  border: 2px solid #ebdbb2;
+  
+}
+
+.myUser {
+
+  background: none;
+
+}
+
+/* --------------------------------------------- */
+/* ------------------- user -------------------- */
+/* --------------------------------------------- */
+
+.userImage {
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  border: 2px solid #ebdbb2;
+  border-radius: 30%;
+  min-width: 110px;
+  min-height: 110px;
+
+}
+
+.userBox {
+
+  background: #222222;
+  padding: 10px;
+
+  border: 2px solid #ebdbb2;
+  border-radius: 30%;
+
+}
+
+/* --------------------------------------------- */
+/* ---------------- media player --------------- */
+/* --------------------------------------------- */
+
+.mediaButtons {
+
+  padding: 1px 8px;
+  background: #222222;
+  color: #ebdbb2;
+
+  border: 2px solid #ebdbb2;
+  border-radius: 30%;
+
+}
+
+.mediaButtons:hover {
+
+  background: #ebdbb2;
+  color: #222222;
+
+  border-radius: 30%;
+
+}
+
+.mediaSong {
+
+  padding: 4px 15px;
+  background: #222222;
+  color: #ebdbb2;
+  
+  min-width: 200px;
+  border-radius:  5px;
+  border: 2px solid #ebdbb2
+
+}
+
+.mediaProgress {
+
+  padding: 4px 15px;
+  background: #222222;
+
+  border-radius: 5px;
+  border: 3px solid #ebdbb2;
+
+}
+
+scale.mediaProgress trough {
+
+  background: #83a598;
+
+  border-radius: 30px;
+  min-width: 100px;
+  min-height: 4px;
+
+}
+
+scale.mediaProgress trough highlight {
+
+  border-radius: 30px;
+
+  background: #ebdbb2; 
+}

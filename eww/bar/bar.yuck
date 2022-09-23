@@ -1,0 +1,158 @@
+
+;; ---------------------------------------------- ;;
+;; ------------------ workspace ----------------- ;;
+;; ---------------------------------------------- ;;
+
+(defwidget workspace []
+  (literal 
+    :content workspace))
+
+;; ---------------------------------------------- ;;
+;; ---------------- bottom-widget --------------- ;;
+;; ---------------------------------------------- ;;
+
+(defwidget brightness []
+  (literal :content brightness))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+(defwidget volume []
+  (literal :content volume))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+(defwidget memory []
+  (literal :content memory))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+(defwidget cpu []
+  (box
+    :orientation "v"
+    :halign "center"
+    :class "cpu"
+    cpu-icon "${round(EWW_CPU.avg, 0)}%"
+  ))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+(defwidget today []
+
+  (literal :content today))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+
+(defwidget bottom []
+
+	(eventbox	
+    :onhover "${eww} update bottom=true"	
+		:onhoverlost "${eww} update bottom=false" 
+
+    (box		
+      :orientation "v"					
+      :space-evenly "false" 	 
+      :vexpand "false" 	
+      :class "bottommenu"
+
+      (revealer	
+        :transition "slideup"				
+        :reveal bottom			 
+        :duration "650ms"
+        (box		
+
+          :orientation "v"					
+          :space-evenly "false"
+          (brightness)
+          (volume)
+          (cpu)
+          (memory)))
+          (button
+          :class "bottom-icon" 
+          :onclick "./scripts/dashboard.sh"
+          ""))))
+
+;; ---------------------------------------------- ;;
+;; ----------------- top widget ----------------- ;;
+;; ---------------------------------------------- ;;
+
+(defwidget hour []
+
+  (literal :content hour))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+(defwidget battery []
+
+  (literal :content battery))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+(defwidget updates []
+
+  (literal :content updates))
+
+;; -----------------------------------------------------------------------
+;; -----------------------------------------------------------------------
+
+
+(defwidget top []
+
+	(eventbox	
+    :onhover "${eww} update top=true"	
+		:onhoverlost "${eww} update top=false" 
+
+	  (box		
+      :orientation "v"					
+			:space-evenly "false" 	 
+			:vexpand "false" 	
+			:class "topmenu"
+
+      (hour)
+      
+	    (revealer	
+        :transition "slidedown"				
+				:reveal top	 
+				:duration "650ms"
+
+	    (box		
+        :orientation "v"					
+		    :space-evenly "false"
+	      (today)
+        (battery)
+        (updates)
+        )))))
+
+;; ---------------------------------------------- ;;
+;; ----------------- main widget ---------------- ;;
+;; ---------------------------------------------- ;;
+
+(defwidget bar []
+
+  (centerbox 
+    :orientation "v"
+    :class "bar"
+
+    (box 
+      :class "segment-top" 
+      :valign "start" 
+      (top))
+
+    (box 
+      :class "segment-center" 
+      :valign "center" 
+      (workspace))
+    
+    (box 
+      :class "segment-botton" 
+      :valign "end" 
+      (bottom))
+  )
+)

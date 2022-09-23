@@ -1,0 +1,110 @@
+
+.bar {
+  background: #222222;
+}
+
+/* --------------------------------------------- */
+/* ----------------- workspace ----------------- */
+/* --------------------------------------------- */
+
+.active {
+  color: #ebdbb2;
+  font-size: 22px;
+}
+
+.inactive {
+  color: #928374;
+  font-size: 20px;
+}
+
+/* --------------------------------------------- */
+/* ---------------- top widgets ---------------- */
+/* --------------------------------------------- */
+
+.hour {
+  margin: 0px 0px 8px 0px;
+  padding: 8px 9px 8px 8px;
+  border-radius: 0px 0px 10px 10px;
+  color: #222222;
+  background: #ebdbb2;
+}
+
+.today {
+  margin: 0px 0px 8px 0px;
+  background: #d65d0e;
+  color: #222222;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.battery {
+  background: #cc241d;
+  color: #222222;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.updates {
+
+  margin: 8px 0px 8px 0px;
+  background: #928374;
+  color: #222222;
+  padding: 11px;
+  font-size: 14px;
+  
+  border-radius: 5px;
+
+}
+
+/* --------------------------------------------- */
+/* --------------- bottom widget --------------- */
+/* --------------------------------------------- */
+
+.bottom-icon {
+
+  font-size: 20px;
+  padding: 8px 0px 5px 0px;
+  margin-top: 3px;
+  background: #ebdbb2;
+  color: #222222;
+
+  border-radius: 10px 10px 0px 0px;
+}
+
+.memory {
+  margin: 8px 0px 8px 0px;
+  background: #d65d0e;
+  color: #222222;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.cpu {
+  margin-top: 8px;
+  background: #cc241d;
+  color: #222222;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.volume {
+  margin-top: 8px;
+  background: #928374;
+  color: #222222;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.bright {
+  margin-top: 8px;
+  background: #d3869b;
+  color: #222222;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}

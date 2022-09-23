@@ -33,10 +33,7 @@ update_workspace()
       buffered=""
     fi
   done;
-
-
 }
 
-while true; do
-  eww update wsp='(box :orientation "v" :class "workspace" :space-evenly true :halign "center" :valign "center" '"$(update_workspace)"')'
-done 
+echo -e "(box :orientation \"v\" :class \"workspace\" :space-evenly true :halign \"center\" :valign \"center\" $(update_workspace))"
+

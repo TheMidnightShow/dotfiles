@@ -1,0 +1,136 @@
+
+;; ---------------------------------------------- ;;
+;; ---------------- media player ---------------- ;;
+;; ---------------------------------------------- ;;
+
+
+(defwidget mediaImage []
+  (box
+    :class "userBox"
+    (literal 
+      :content mediaControl)))
+
+(defwidget mediaButtons []
+  (box
+    :class "mediaButton-box"
+    :space-evenly false
+    :valign "center"
+    :halign "end"
+    :spacing 10
+
+    (button 
+      :class "mediaButtons"
+      :onclick "./scripts/mediaControl.sh prev"
+      "玲")
+
+    (button 
+      :class "mediaButtons"
+      :onclick "./scripts/mediaControl.sh toggle"
+      "懶")
+
+    (button 
+      :class "mediaButtons"
+      :onclick "./scripts/mediaControl.sh next"
+      "怜")
+
+    (scale 
+      :class "mediaProgress" 
+      :min 0 
+      :max 101 
+      :value mediaProgress)
+
+    ))
+
+(defwidget mediaSong []
+
+    (box 
+      :orientation "v"
+      :valign "center"
+      :spacing 6
+
+      (mediaButtons)
+
+      (label
+        :text song
+        :limit-width 18
+        :class "mediaSong")
+
+))
+
+(defwidget myMediaPlayer []
+
+  (box
+    :class "mediaPlayer"
+    :orientation "h"
+    :halign "end"
+    :space-evenly false
+    :spacing 10
+
+    (mediaSong)
+
+    (mediaImage)))
+
+;; ---------------------------------------------- ;;
+;; ------------------- user --------------------- ;;
+;; ---------------------------------------------- ;;
+
+(defwidget userData []
+
+  (box
+    :orientation "v"
+    :valign "center"
+    :spacing 10
+
+    (box
+      :class "userData"
+      :halign "end"
+      username)
+
+    (label
+      :class "userData"
+      :text uptime
+      :halign "end"
+      :limit-width 12
+      )))
+
+;; ---------------------------------------------- ;;
+;; ---------------------------------------------- ;;
+
+(defwidget userImage []
+  (box
+    :class "userBox"
+    :halign "start"
+
+    (box
+    :class "userImage"
+    :style "background-image: url('./assets/user.png')")))
+
+;; ---------------------------------------------- ;;
+;; ---------------------------------------------- ;;
+
+(defwidget myUser []
+
+  (box
+    :class "myUser"
+    :halign "end"
+    :spacing 10
+    :space-evenly false
+
+    (userData)
+
+    (userImage)))
+
+;; ---------------------------------------------- ;;
+;; ----------------- dashboard ------------------ ;;
+;; ---------------------------------------------- ;;
+
+(defwidget dashboard []
+
+  (box
+    :orientation "v"
+    :class "myDashboard"
+    :spacing 10
+
+    (myUser)
+
+    (myMediaPlayer)))
