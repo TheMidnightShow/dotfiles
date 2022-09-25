@@ -21,7 +21,7 @@ import XMonad.Hooks.EwmhDesktops
 ----------------------------------
 
 myTerminal = "kitty" :: String 
-myBorderWidth = 3 :: Dimension
+myBorderWidth = 2 :: Dimension
 myNormColor = "#928374" ::String
 myFocusColor = "#ebdbb2" ::String
 
@@ -34,19 +34,19 @@ myKeys =
     ("M-f", spawn "thunar"), -- file system
 
   -- utilities -- 
-    ("M-p", spawn "~/.config/rofi/launchers/type-4/launcher.sh"), -- rofi
+    ("M-p", spawn "rofi -show"), -- rofi
     ("M-s", spawn "scrot"), -- screenshot
     ("M-S-s", spawn "scrot -s"), --screenshot 
     ("M-r", spawn "redshift -O 4000"), -- red screen
     ("M-S-r", spawn "redshift -x"), -- red screen
-    ("M-e", spawn "~/.config/rofi/powermenu/type-4/powermenu.sh"), -- powermenu
 
   -- actions 
     ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%"), -- vol up
     ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%"), -- vol down
     ("M-<XF86AudioRaiseVolume>", spawn "brightnessctl set 2%+"), -- brightness up
     ("M-<XF86AudioLowerVolume>", spawn "brightnessctl set 2%-"), -- brightness down
-    ("<XF86AudioMute>", spawn "pactl set-sink-input-mute 2 toggle") -- mute / unmute
+    ("<XF86AudioMute>", spawn "pactl set-sink-input-mute 2 toggle"), -- mute / unmute
+    ("M-d", spawn "bash ~/.config/eww/scripts/dashboard.sh") -- brightness down
 
   ]
 
@@ -58,11 +58,6 @@ myLayoutHook =
 
 myStartupHook :: X ()
 myStartupHook = do
--- my bar
-  spawnOnce "eww open bar_1"
-
--- bar workspaces
-  spawnOnce "bash ~/.config/eww/workspace.sh"
 
 -- keyboard layout
   spawnOnce "setxkbmap es"
