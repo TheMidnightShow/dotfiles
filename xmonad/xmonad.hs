@@ -22,8 +22,8 @@ import XMonad.Hooks.EwmhDesktops
 
 myTerminal = "kitty" :: String 
 myBorderWidth = 2 :: Dimension
-myNormColor = "#928374" ::String
-myFocusColor = "#ebdbb2" ::String
+myNormColor = "#2b2c2a" ::String
+myFocusColor = "#d8ded3" ::String
 
 myKeys ::  [(String, X ())]
 myKeys =
@@ -41,11 +41,13 @@ myKeys =
     ("M-S-r", spawn "redshift -x"), -- red screen
 
   -- actions 
-    ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%"), -- vol up
-    ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%"), -- vol down
-    ("M-<XF86AudioRaiseVolume>", spawn "brightnessctl set 2%+"), -- brightness up
-    ("M-<XF86AudioLowerVolume>", spawn "brightnessctl set 2%-"), -- brightness down
-    ("<XF86AudioMute>", spawn "pactl set-sink-input-mute 2 toggle"), -- mute / unmute
+    ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%"), -- vol up
+    ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"), -- vol down
+    ("M-<XF86AudioRaiseVolume>", spawn "brightnessctl set 5%+"), -- brightness up
+    ("M-<XF86AudioLowerVolume>", spawn "brightnessctl set 5%-"), -- brightness down
+    ("<XF86AudioNext>", spawn "playerctl next"), -- mute / unmute
+    ("<XF86AudioPrev>", spawn "playerctl previous"), -- mute / unmute
+    ("<XF86AudioPlay>", spawn "playerctl play-pause"), -- mute / unmute
     ("M-d", spawn "bash ~/.config/eww/scripts/dashboard.sh") -- brightness down
 
   ]
