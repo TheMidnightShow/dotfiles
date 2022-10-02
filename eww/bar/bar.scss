@@ -1,6 +1,6 @@
 
 .bar {
-  background: #222222;
+  background: $bg-0;
 }
 
 /* --------------------------------------------- */
@@ -8,12 +8,12 @@
 /* --------------------------------------------- */
 
 .active {
-  color: #ebdbb2;
-  font-size: 22px;
+  color: $fg-0;
+  font-size: 20px;
 }
 
 .inactive {
-  color: #928374;
+  color: $fg-1;
   font-size: 20px;
 }
 
@@ -22,11 +22,11 @@
 /* --------------------------------------------- */
 
 .hour {
-  margin: 0px 0px 8px 0px;
-  padding: 8px 9px 8px 8px;
+  padding: 8px 10px 12px 10px;
+  margin-bottom: 5px;
   border-radius: 0px 0px 10px 10px;
-  color: #222222;
-  background: #ebdbb2;
+  color: $fg-0;
+  background: $bg-1;
 }
 
 .today {
@@ -65,10 +65,10 @@
 .bottom-icon {
 
   font-size: 20px;
-  padding: 8px 0px 5px 0px;
+  padding: 8px 0px 10px 0px;
   margin-top: 3px;
-  background: #ebdbb2;
-  color: #222222;
+  background: $bg-1;
+  color: $fg-0;
 
   border-radius: 10px 10px 0px 0px;
 }

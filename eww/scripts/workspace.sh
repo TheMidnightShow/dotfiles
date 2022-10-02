@@ -1,7 +1,5 @@
 #!/bin/bash
 
- 
-
 get_workspace()
 {
   wmctrl -d | awk '{ print $1 " " $2 }'

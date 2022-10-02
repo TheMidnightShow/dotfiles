@@ -19,7 +19,13 @@ get_volume()
 get_bat_percentage()
 {
   local BATTERY="$(cat /sys/class/power_supply/BAT1/capacity)"
-  local ICON=""
+  local ICON=""
+
+  if [ "$BATTERY" >= '90' ];then
+    ICON=""
+  elif [ "$BATTERY" <= '70' ];then
+    ICON=""
+  fi
 
   echo -e "(box :orientation \"v\" :halign \"center\" :class \"battery\" \"$ICON\" \"$BATTERY\")"
 }

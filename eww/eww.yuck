@@ -12,7 +12,7 @@
 
 (defwindow bar_1
 
-  :monitor 0
+  :monitor 1
 
   :stacking "fg"
 
@@ -28,7 +28,7 @@
     :distance "42px" 
     :side "left")
 
-  :wm-ignore false
+  :wm-ignore true
 
   (bar))
 
@@ -37,7 +37,7 @@
 ;; ---------------------------------------------- ;;
 
 (defwindow myDashboard
-  :monitor "eDP-1"
+  :monitor 1
 
   :geometry (geometry 
     :x -22
@@ -74,7 +74,7 @@
 
 (defpoll hour :interval "1m" "./scripts/barData.sh hour")
 
-(defpoll workspace :interval "100ms" "./scripts/workspace.sh")
+(defpoll workspace :interval "50ms" "./scripts/workspace.sh")
 
 (defvar cpu-icon "ﮕ")
 
