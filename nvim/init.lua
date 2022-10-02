@@ -3,13 +3,12 @@
 -- visit https://github.com/LunarVim/Neovim-from-scratch
 --
 require('impatient')
-
 require('user.plugins')
+
 require('user.keybinds')
 require('user.settings')
 
 require('user.alpha')
-require('user.gruvbox')
 require('user.autopairs')
 require('user.indentline')
 require('user.lsp')
