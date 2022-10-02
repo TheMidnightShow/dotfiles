@@ -12,6 +12,16 @@ drop_about()
 }
 
 # ---------------------------------- #
+# -------- install themes ---------- #
+# ---------------------------------- #
+
+install_themes()
+{
+  clear 
+  echo -e "not yet"
+}
+
+# ---------------------------------- #
 # ---------- link files ------------ #
 # ---------------------------------- #
 
@@ -102,7 +112,7 @@ installer()
     "d") install_dependencies;;
     "p") install_programs;;
     "a") drop_about;;
-    "t") clear && echo -e "\nnot yet, hehe...\n";;
+    "t") install_themes;;
     *) clear && echo -e "\n[!] not a valid input!\n";;
   esac
 }
