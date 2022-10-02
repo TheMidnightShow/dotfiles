@@ -1,0 +1,28 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true 
+
+format = """[](fg:#d8ded3)[  $directory](bg:#d8ded3 fg:#0f080e)[](fg:#d8ded3) [](fg:#d8ded3)[$git_branch /$git_metrics ](bg:#d8ded3 fg:#0f080e)[](fg:#d8ded3) 
+> """
+
+right_format = "[](fg:#d8ded3)[ $status](bg:#d8ded3 fg:#0f080e)[](fg:#d8ded3)"
+
+[status]
+symbol = " "
+success_symbol = " "
+disabled = false
+format = '$symbol'
+
+[directory]
+disabled = false
+format = "[$path](bg:#d8ded3 fg:#0f080e) "
+
+[git_branch]
+symbol = ' '
+format = '[$symbol$branch](bg:#d8ded3 fg:#0f080e)'
+
+[git_metrics]
+disabled = false
+only_nonzero_diffs = false
+format = '[  $added  $deleted](bg:#d8ded3 fg:#0f080e)'
+
