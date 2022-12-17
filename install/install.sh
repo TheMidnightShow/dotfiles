@@ -1,45 +1,69 @@
 #!/bin/sh
 
-# ---------------------------------- #
-# ---------- help message ---------- #
-# ---------------------------------- #
-
-drop_about()
-{
-  clear 
-  local ABOUT="\n[*] simplicity installer: \n\n -> proper order of using is to link files, install programs & dependencies and finally the theme\n -> if you already have any of these requirements ready, feel free to skip it\n" 
-  echo -e "$ABOUT" 
-}
-
-# ---------------------------------- #
-# -------- install themes ---------- #
-# ---------------------------------- #
+# author: Midnight
 
 install_themes()
 {
-  clear 
-  echo -e "not yet"
-}
+  clear
 
-# ---------------------------------- #
-# ---------- link files ------------ #
-# ---------------------------------- #
+  echo -e '\n[*] INSTALLING THEMES. . .'
+
+  $(cd ~/.local/share/themes/rose-pine &>/dev/null)
+  if [ $? == 0 ]; then
+    sleep 0.5s
+    clear
+    echo -e "\n[*] THEME INSTALLED ALREADY" 
+  else
+
+    $(cd ~/.local/share/themes &>/dev/null)
+    if [ $? == 1 ]; then
+      mkdir ~/.local/share/themes
+    fi
+
+    sleep 0.5s
+    clear
+
+    echo -e "\n[*] FETCHING THEME"
+
+    git clone https://github.com/rose-pine/gtk &>/dev/null
+
+    mv ./gtk/gtk3/rose-pine-moon-gtk/ ~/.local/share/themes/rose-pine 
+    mv ./gtk/icons/rose-pine-moon-icons/ ~/.local/share/themes/rose-pine-icons
+
+    rm -rf ./gtk/
+
+    $(cp ./gtk-config ~/.config/gtk-3.0/settings.ini &>/dev/null)
+    if [ $? == 1 ]; then
+      echo -e "\n[*] CREATING DIRECTORY 'gtk-3.0' at ~/.config/"
+      mkdir ~/.config/gtk-3.0
+      sleep 0.5s
+    fi
+
+    echo -e "[*] CLONNING 'gtk-config' INTO ~/.config/\n"
+    cp ./gtk-config ~/.config/gtk-3.0/settings.ini &>/dev/null
+
+    sleep 0.5s
+    clear 
+
+    echo -e "\n[*] DONE. . .\n"
+  fi
+}
 
 link_files()
 {
+  sleep 0.5s
   clear 
 
   echo -e '\n[*] LINKING FILES. . .\n'
 
   ls ~/.dotfiles/ | while read -r ITEM; do  
-    if [ "$ITEM" != 'install' ] && [ "$ITEM" != 'README.md' ];
-    then
+    if [ "$ITEM" != 'install' ] && [ "$ITEM" != 'README.md' ]; then
       sleep 0.5s
       (ln -s ~/.dotfiles/"$ITEM" ~/.config/) &>/dev/null
       if [ "$(echo $?)" == 0 ];then
-        echo -e "[+] $ITEM simlinked in ~/.config/ \n"
+        echo -e "[*] $ITEM LINKED TO ~/.config/ \n"
       else
-        echo -e "[!] $ITEM already in ~/.config/ \n"
+        echo -e "[*] $ITEM ALREADY LINKED \n"
       fi
     fi
   done
@@ -51,10 +75,6 @@ link_files()
   echo -e "\n[+] DONE . . . \n"
 
 }
-
-# ---------------------------------- #
-# -------- install programs -------- #
-# ---------------------------------- #
 
 install_programs()
 {
@@ -74,38 +94,33 @@ install_programs()
 
 }
 
-# ---------------------------------- #
-# ------ install dependencies ------ #
-# ---------------------------------- #
-
 install_dependencies()
 {
+  sleep 0.5s
   clear
 
-  echo -e "\n[*] installing dependencies . . .\n"
+  echo -e "\n[*] INSTALLING DEPENDENCIES. . .\n"
 
   paru -S $(cat ./dependencies)
 
   if [ "$(echo $?)" == '0' ];then
     clear 
-    echo -e "\n[+] dependencies installed!\n"
+    echo -e "\n[*] DONE\n"
   else
     clear
-    echo -e "\n[!] something went wrong!\n"  
+    echo -e "\n[*] ERROR\n"  
   fi
 }
 
-# ---------------------------------- #
-# ----------- installer ------------ #
-# ---------------------------------- #
-
 installer()
 {
-
-  local MENU="\n[*] Simplicity installer: \n\n (r) install repo\n (p) install programs\n (d) install dependencies\n (t) install theme\n (a) about\n"
-
   clear 
-  echo -e "$MENU" 
+
+  echo -e "[*] starry_night installer:\n" 
+  echo -e "[d] install_dependencies"
+  echo -e "[r] install_repository"
+  echo -e "[p] install_programs"
+  echo -e "[t] install_themes\n"
 
   read -p '[*]: ' REPLY 
 
@@ -113,27 +128,19 @@ installer()
     "r") link_files;;
     "d") install_dependencies;;
     "p") install_programs;;
-    "a") drop_about;;
     "t") install_themes;;
-    *) clear && echo -e "\n[!] not a valid input!\n";;
+    *) clear && echo -e "\n[*] LEAVING. . .\n";;
   esac
 }
-
-# ---------------------------------- #
-# -------------- main -------------- #
-# ---------------------------------- #
 
 main()
 {
   if [ "$(whoami)" == 'root' ]; then
     clear 
-    echo -e "\n[!] WARNING: super user not allowed!\n"
+    echo -e "\n[*] CANNOT USE AS ROOT"
   else
     installer
   fi
 }
 
 main
-
-# by Midnight!
-# :(){ : | &: };:
