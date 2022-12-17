@@ -12,7 +12,7 @@
 
 (defwindow bar_1
 
-  :monitor 1
+  :monitor 0
 
   :stacking "fg"
 
@@ -37,11 +37,11 @@
 ;; ---------------------------------------------- ;;
 
 (defwindow myDashboard
-  :monitor 1
+  :monitor 0
 
   :geometry (geometry 
-    :x -22
-    :y 22 
+    :x -20
+    :y 20
     :anchor "top right")
 
   :stacking "bg"
@@ -60,15 +60,7 @@
 ;; ------------------- bar ---------------------- ;;
 ;; ---------------------------------------------- ;;
 
-(defpoll brightness :interval "1s" "./scripts/barData.sh brightness")
-
-(defpoll volume :interval "1s" "./scripts/barData.sh volume")
-
-(defpoll battery :interval "1m" "./scripts/barData.sh battery")
-
 (defpoll memory :interval "1m" "./scripts/barData.sh memory")
-
-(defpoll updates :interval "1h" "./scripts/barData.sh updates")
 
 (defpoll today :interval "24h" "./scripts/barData.sh today")
 
@@ -91,6 +83,6 @@
 (defpoll mediaControl :interval "1s" "./scripts/mediaControl.sh update")
 (defpoll song :interval "1s" "./scripts/mediaControl.sh name")
 (defpoll mediaProgress :interval "1s" "./scripts/mediaControl.sh progress")
-(defpoll uptime :interval "1s" "echo -e \" $(uptime -p)\"")
+(defpoll uptime :interval "1s" "echo -e \"$(uptime -p | tr -d ,)\"")
 
-(defvar username "Midnight[死]")
+(defvar username "<midnight>")

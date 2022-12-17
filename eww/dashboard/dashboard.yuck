@@ -1,3 +1,20 @@
+;; ---------------------------------------------- ;;
+;; ---------------- dashboard box --------------- ;;
+;; ---------------------------------------------- ;;
+
+(defwidget dashboard[]
+  (box
+    :orientation "v"
+    :spacing 10
+    :class "dashboard"
+    :space-evenly false
+    (myUser)
+    (metrics)
+    (myCalendar)
+    (myMediaPlayer)
+    (power)
+  )
+)
 
 ;; ---------------------------------------------- ;;
 ;; ---------------- media player ---------------- ;;
@@ -6,7 +23,6 @@
 
 (defwidget mediaImage []
   (box
-    :class "userBox"
     (literal 
       :content mediaControl)))
 
@@ -14,61 +30,67 @@
   (box
     :class "mediaButton-box"
     :space-evenly false
-    :valign "center"
-    :halign "end"
-    :spacing 10
 
     (button 
       :class "mediaButtons"
       :onclick "./scripts/mediaControl.sh prev"
-      "玲")
+      "玲"
+    )
 
     (button 
       :class "mediaButtons"
       :onclick "./scripts/mediaControl.sh toggle"
-      "懶")
+      "懶"
+    )
 
     (button 
       :class "mediaButtons"
       :onclick "./scripts/mediaControl.sh next"
-      "怜")
+      "怜"
+    )
+  )
+)
 
-    (scale 
-      :class "mediaProgress" 
-      :min 0 
-      :max 101 
-      :value mediaProgress)
-
-    ))
+(defwidget mediaProgress[]
+  (scale 
+    :class "mediaProgress" 
+    :min 0 
+    :max 101 
+    :value mediaProgress
+  )
+)
 
 (defwidget mediaSong []
-
-    (box 
-      :orientation "v"
-      :valign "center"
-      :spacing 6
-
-      (mediaButtons)
-
-      (label
-        :text song
-        :limit-width 18
-        :class "mediaSong")
-
-))
+  (box 
+    :halign "start"
+    (label
+      :text song
+      :limit-width 12
+      :class "mediaSong"
+    )
+  )
+)
 
 (defwidget myMediaPlayer []
 
   (box
     :class "mediaPlayer"
-    :orientation "h"
-    :halign "end"
     :space-evenly false
-    :spacing 10
+    :orientation "v"
+    (box
+      :space-evenly false
+      :halign "start"
+      :orientation "h"
+      (mediaImage)
+      (box
+        :orientation "v"
+        (mediaSong)
+        (mediaButtons)
+      )
+    )
+    (mediaProgress)
 
-    (mediaSong)
-
-    (mediaImage)))
+))
 
 ;; ---------------------------------------------- ;;
 ;; ------------------- user --------------------- ;;
@@ -79,19 +101,20 @@
   (box
     :orientation "v"
     :valign "center"
-    :spacing 10
 
     (box
       :class "userData"
-      :halign "end"
-      username)
+      :halign "start"
+      username
+    )
 
     (label
       :class "userData"
       :text uptime
-      :halign "end"
-      :limit-width 12
-      )))
+      :halign "start"
+    )
+  )
+)
 
 ;; ---------------------------------------------- ;;
 ;; ---------------------------------------------- ;;
@@ -103,34 +126,169 @@
 
     (box
     :class "userImage"
-    :style "background-image: url('./assets/user.png')")))
+    :style "background-image: url('./assets/user.png')"))
+)
 
 ;; ---------------------------------------------- ;;
 ;; ---------------------------------------------- ;;
 
 (defwidget myUser []
-
   (box
-    :class "myUser"
-    :halign "end"
-    :spacing 10
     :space-evenly false
-
+    :spacing 10
+    :class "myUser"
+    (userImage)
     (userData)
-
-    (userImage)))
+  )
+)
 
 ;; ---------------------------------------------- ;;
-;; ----------------- dashboard ------------------ ;;
+;; ----------------- calendar ------------------- ;;
 ;; ---------------------------------------------- ;;
 
-(defwidget dashboard []
+(defpoll time :interval "1m" "echo -- $(date +%R) --")
+(defwidget myCalendar[]
+  (box
+    :class "myCalendar"
+    :orientation "v"
+    :space-evenly false
+    :spacing 10
+    (box
+     (label
+      :class "time"
+      :text time
+     )     
+    )
+    (calendar
+      :space-evenly false
+      :show-heading false
+    )
+  )
+)
 
+;; ---------------------------------------------- ;;
+;; ------------------ power -------------------- ;;
+;; ---------------------------------------------- ;;
+
+(defwidget power[]
+  (box
+    :spacing 5
+    (box
+      :class "powerButton"
+      (button
+        :onclick "poweroff"
+        ""
+      )
+    )
+    (box
+      :class "powerButton"
+      (button
+        :onclick "reboot"
+        ""
+      )
+    )
+    (box
+      :class "powerButton"
+      (button
+        :onclick "exit"
+        ""
+      )
+    )
+  )
+)
+
+;; ---------------------------------------------- ;;
+;; ------------------ metrics ------------------- ;;
+;; ---------------------------------------------- ;;
+
+;; ---------------------------------------------- ;;
+
+(defpoll updates :interval "1m" "checkupdates | wc -l")
+(defwidget metricBox[]
+  (box
+    :class "metricBox"
+    :space-evenly false
+    :orientation "h"
+    (box
+      :class "metricIcon"
+      ""
+    )
+    (box
+      :class "metricData"
+      updates 
+    )
+  )
+)
+
+;; ---------------------------------------------- ;;
+
+(defpoll battery :interval "1m" "cat /sys/class/power_supply/BAT1/capacity")
+(defwidget battery[]
+  (box
+    :class "metricBox"
+    :space-evenly false
+    (box 
+      :class "metricIcon"
+      ""
+    )
+    (box
+      :class "metricData"
+      battery
+    )
+  )
+)
+
+;; ---------------------------------------------- ;;
+
+(defpoll volume :interval "1ms" "amixer get Master | grep Mono: | awk '{ print $4 }' | tr -d '[]'")
+(defwidget volume[]
+  (box
+    :class "metricBox"
+    :space-evenly false
+    (box 
+      :class "metricIcon"
+      "墳"
+    )
+    (box
+      :class "metricData"
+      volume 
+    )
+  )
+)
+
+(defpoll brightness :interval "1ms" "brightnessctl | grep Current | awk '{ print $4 }' | tr -d '()'")
+(defwidget brightness[]
+  (box
+    :class "metricBox"
+    :space-evenly false
+    (box 
+      :class "metricIcon"
+      "盛"
+    )
+    (box
+      :class "metricData"
+      brightness 
+    )
+  )
+)
+
+;; ---------------------------------------------- ;;
+
+(defwidget metrics[]
   (box
     :orientation "v"
-    :class "myDashboard"
-    :spacing 10
+    :spacing 5
+    (box
+      :spacing 5
+      (battery)
+      (metricBox)    
+    )
+    (box
+      :spacing 5
+      (volume)
+      (brightness)
+    )
+  )
+)
 
-    (myUser)
-
-    (myMediaPlayer)))
+;; ---------------------------------------------- ;;

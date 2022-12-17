@@ -50,7 +50,7 @@ return packer.startup(function(use)
   use { 'goolord/alpha-nvim' }
 
   -- colorscheme
-  use { 'ellisonleao/gruvbox.nvim' }
+  use { 'rose-pine/neovim' }
 
   -- impatient
   use { 'lewis6991/impatient.nvim' }
@@ -101,6 +101,9 @@ return packer.startup(function(use)
 
   -- colorizer
   use { 'norcalli/nvim-colorizer.lua' }
+
+  -- yuck.vim
+  use { 'elkowar/yuck.vim' }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

@@ -1,1 +1,1 @@
-playerctl brightnessctl alsa-utils nerd-fonts-jetbrains-mono adobe-source-han-sans-jp-fonts zsh-theme-powerlevel10k-git wmctrl feh scrot xclip dunst redshift pulseaudio
+playerctl brightnessctl alsa-utils nerd-fonts-jetbrains-mono adobe-source-han-sans-jp-fonts starship wmctrl feh scrot xclip dunst redshift pulseaudio

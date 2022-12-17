@@ -36,8 +36,7 @@ link_files()
     then
       sleep 0.5s
       (ln -s ~/.dotfiles/"$ITEM" ~/.config/) &>/dev/null
-      if [ "$(echo $?)" == 0 ]; 
-      then
+      if [ "$(echo $?)" == 0 ];then
         echo -e "[+] $ITEM simlinked in ~/.config/ \n"
       else
         echo -e "[!] $ITEM already in ~/.config/ \n"
@@ -46,7 +45,10 @@ link_files()
   done
 
   sleep 0.5s
-  echo -e "[+] DONE . . . \n"
+
+  clear 
+
+  echo -e "\n[+] DONE . . . \n"
 
 }
 
@@ -124,6 +126,7 @@ installer()
 main()
 {
   if [ "$(whoami)" == 'root' ]; then
+    clear 
     echo -e "\n[!] WARNING: super user not allowed!\n"
   else
     installer

@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local dashboard = require("alpha.themes.dashboard")
+
 dashboard.section.header.val = {
 	[[                                                           ]],
 	[[                                                           ]],
@@ -38,5 +39,7 @@ dashboard.section.header.opts.hl = "Include"
 dashboard.section.buttons.opts.hl = "Keyword"
 
 dashboard.opts.opts.noautocmd = true
+
 vim.cmd([[autocmd User AlphaReady echo '     /Midnight']])
+
 alpha.setup(dashboard.opts)

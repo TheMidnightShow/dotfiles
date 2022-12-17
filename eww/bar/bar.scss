@@ -1,19 +1,26 @@
 
 .bar {
-  background: $bg-0;
+  background: $_c0;
 }
 
 /* --------------------------------------------- */
 /* ----------------- workspace ----------------- */
 /* --------------------------------------------- */
 
+.workspace {
+  margin: 8px;
+  padding: 12px;
+  background: $_c0;
+  border-radius: 5px;
+}
+
 .active {
-  color: $fg-0;
+  color: $_c2;
   font-size: 20px;
 }
 
 .inactive {
-  color: $fg-1;
+  color: $_c2;
   font-size: 20px;
 }
 
@@ -22,11 +29,11 @@
 /* --------------------------------------------- */
 
 .hour {
-  padding: 8px 10px 12px 10px;
-  margin-bottom: 5px;
-  border-radius: 0px 0px 10px 10px;
-  color: $fg-0;
-  background: $bg-1;
+  padding: 6px;
+  margin: 8px;
+  border-radius: 5px;
+  color: $_c0;
+  background: $_c2;
 }
 
 .today {
@@ -67,8 +74,8 @@
   font-size: 20px;
   padding: 8px 0px 10px 0px;
   margin-top: 3px;
-  background: $bg-1;
-  color: $fg-0;
+  background: $_c6;
+  color: $_c2;
 
   border-radius: 10px 10px 0px 0px;
 }

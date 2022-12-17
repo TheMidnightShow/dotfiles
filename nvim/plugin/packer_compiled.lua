@@ -119,11 +119,6 @@ _G.packer_plugins = {
     path = "/home/midnight/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
-  ["gruvbox.nvim"] = {
-    loaded = true,
-    path = "/home/midnight/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
-  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/home/midnight/.local/share/nvim/site/pack/packer/start/impatient.nvim",
@@ -139,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/midnight/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  neovim = {
+    loaded = true,
+    path = "/home/midnight/.local/share/nvim/site/pack/packer/start/neovim",
+    url = "https://github.com/rose-pine/neovim"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/home/midnight/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -153,6 +153,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/midnight/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/midnight/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
@@ -198,6 +203,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/midnight/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["yuck.vim"] = {
+    loaded = true,
+    path = "/home/midnight/.local/share/nvim/site/pack/packer/start/yuck.vim",
+    url = "https://github.com/elkowar/yuck.vim"
   }
 }
 

@@ -5,107 +5,153 @@ local theme = {}
 
 theme.set_highlights = function()
 
-  -- Editor
-  hl(0, "Normal", { fg = c._c7, bg = c.bg })
-  hl(0, "SignColumn", { fg = 'NONE', bg = c.bg })
-  hl(0, "MsgArea", { fg = c._c7, bg = c.bg })
-  hl(0, "ModeMsg", { fg = c._c7, bg = c.alt_bg })
-  hl(0, "MsgSeparator", { fg = c._c7, bg = c.bg })
-  hl(0, "SpellBad", { fg = 'NONE', bg = 'NONE', sp = c.err, undercurl=true, })
-  hl(0, "SpellCap", { fg = 'NONE', bg = 'NONE', sp = c._c6, undercurl=true, })
-  hl(0, "SpellLocal", { fg = 'NONE', bg = 'NONE', sp = c._c5, underline=true, })
-  hl(0, "SpellRare", { fg = 'NONE', bg = 'NONE', sp = c._c2, underline=true, })
-  hl(0, "NormalNC", { fg = c._c7, bg = c.bg })
-  hl(0, "Pmenu", { fg = c._c7, bg = c.alt_bg })
-  hl(0, "PmenuSel", { fg = c._c0, bg = c._c2 })
-  hl(0, "WildMenu", { fg = c._c0, bg = c._c2 })
+--------------------------------------------------------
+----- Editor -------------------------------------------
+--------------------------------------------------------
+
+  -- Normal
+  hl(0, "Normal",       { fg = c._c3, bg = c._c0 })
+  hl(0, "NormalNC",     { fg = c._c7, bg = c._c0 })
+  hl(0, "NormalFloat",  { fg = 'NONE', bg = c.alt })
+
+  -- Message
+  hl(0, "MsgArea",      { fg = c._c7, bg = c._c0 })
+  hl(0, "MsgSeparator", { fg = c._c7, bg = c._c0 })
+
+  hl(0, "ModeMsg",      { fg = c._c7, bg = c.alt })
+  hl(0, "ErrorMsg",     { fg = c.err, bg = c._c0, bold=true, })
+  hl(0, "WarningMsg",   { fg = c.err, bg = c._c0 })
+
+  -- Sign
+  hl(0, "SignColumn",   { fg = c._c2, bg = c._c0 })
+
+  -- Spell
+  hl(0, "SpellBad",     { fg = 'NONE', bg = 'NONE', sp = c.err, undercurl=true, })
+  hl(0, "SpellCap",     { fg = 'NONE', bg = 'NONE', sp = c.err, undercurl=true, })
+  hl(0, "SpellLocal",   { fg = 'NONE', bg = 'NONE', sp = c.err, underline=true, })
+  hl(0, "SpellRare",    { fg = 'NONE', bg = 'NONE', sp = c.err, underline=true, })
+
+  -- Pmenu
+  hl(0, "Pmenu",        { fg = c._c7, bg = c.alt })
+  hl(0, "PmenuSel",     { fg = c._c0, bg = c._c2 })
+  hl(0, "PmenuSbar",    { fg = 'NONE', bg = c.alt })
+  hl(0, "PmenuThumb",   { fg = 'NONE', bg = c._c6 })
+
+  -- Folded
+  hl(0, "Folded",       { fg = c._c6, bg = c.alt })
+  hl(0, "FoldColumn",   { fg = c._c6, bg = c.alt })
+
+  -- Cursor
+  hl(0, "CursorLine",   { fg = 'NONE', bg = c.alt })
+  hl(0, "ColorColumn",  { fg = 'NONE', bg = c.alt })
+  hl(0, "CursorColumn", { fg = 'NONE', bg = c.alt })
   hl(0, "CursorLineNr", { fg = c._c8, bg = 'NONE', bold=true, })
-  hl(0, "Folded", { fg = c._c6, bg = c.alt_bg })
-  hl(0, "FoldColumn", { fg = c._c6, bg = c.alt_bg })
-  hl(0, "LineNr", { fg = c._c6, bg = 'NONE' })
-  hl(0, "FloatBoder", { fg = c._c6, bg = c.alt_bg })
-  hl(0, "Whitespace", { fg = c._c0, bg = 'NONE' })
-  hl(0, "VertSplit", { fg = c._c6, bg = c.bg })
-  hl(0, "CursorLine", { fg = 'NONE', bg = c.alt })
-  hl(0, "CursorColumn", { fg = 'NONE', bg = c.alt_bg })
-  hl(0, "ColorColumn", { fg = 'NONE', bg = c.alt_bg })
-  hl(0, "NormalFloat", { fg = 'NONE', bg = c.alt_bg })
-  hl(0, "Visual", { fg = c._c0, bg = c._c2 })
-  hl(0, "VisualNOS", { fg = 'NONE', bg = c.alt_bg })
-  hl(0, "WarningMsg", { fg = c.err, bg = c.bg })
-  hl(0, "DiffText", { fg = c.alt, bg = c._c2 })
-  hl(0, "DiffAdd", { fg = c.alt, bg = c._c2 })
-  hl(0, "DiffChange", { fg = c.alt, bg = c._c2, underline=true, })
-  hl(0, "DiffDelete", { fg = c.alt, bg = c._c2 })
-  hl(0, "QkFixLine", { fg = 'NONE', bg = c._c2 })
-  hl(0, "PmenuSbar", { fg = 'NONE', bg = c.alt_bg })
-  hl(0, "PmenuThumb", { fg = 'NONE', bg = c._c6 })
-  hl(0, "MatchWord", { fg = 'NONE', bg = 'NONE', underline=true, })
-  hl(0, "MatchParen", { fg = c._c7, bg = 'NONE', underline=true, })
-  hl(0, "MatchWordCur", { fg = 'NONE', bg = 'NONE', underline=true, })
-  hl(0, "MatchParenCur", { fg = 'NONE', bg = 'NONE', underline=true, })
-  hl(0, "Cursor", { fg = c._c2, bg = c._c2 })
-  hl(0, "lCursor", { fg = c._c2, bg = c._c2 })
-  hl(0, "CursorIM", { fg = c._c2, bg = c._c2 })
-  hl(0, "TermCursor", { fg = c._c2, bg = c._c2 })
+  hl(0, "Cursor",       { fg = c._c2, bg = c._c2 })
+  hl(0, "lCursor",      { fg = c._c2, bg = c._c2 })
+  hl(0, "CursorIM",     { fg = c._c2, bg = c._c2 })
+  hl(0, "TermCursor",   { fg = c._c2, bg = c._c2 })
   hl(0, "TermCursorNC", { fg = c._c2, bg = c._c2 })
-  hl(0, "Conceal", { fg = c._c6, bg = 'NONE' })
-  hl(0, "Directory", { fg = c.folder_blue, bg = 'NONE' })
-  hl(0, "SpecialKey", { fg = c._c2, bg = 'NONE', bold=true, })
-  hl(0, "ErrorMsg", { fg = c.err, bg = c._c0, bold=true, })
-  hl(0, "Search", { fg = c._c0, bg = c._c2 })
-  hl(0, "IncSearch", { fg = c._c0, bg = c._c6 })
-  hl(0, "Substitute", { fg = c._c0, bg = c._c6 })
-  hl(0, "MoreMsg", { fg = c._c6, bg = 'NONE' })
-  hl(0, "Question", { fg = c._c6, bg = 'NONE' })
-  hl(0, "EndOfBuffer", { fg = c._c0, bg = 'NONE' })
-  hl(0, "NonText", { fg = c._c0, bg = 'NONE' })
-  hl(0, "TabLine", { fg = c._c8, bg = c._c0 })
-  hl(0, "TabLineSel", { fg = c._c7, bg = c._c0 })
-  hl(0, "TabLineFill", { fg = c._c0, bg = c._c0 })
 
-  -- Code
-  hl(0, "Comment", { fg = c._c6, bg = 'NONE' })
-  hl(0, "Variable", { fg = c._c7, bg = 'NONE' })
-  hl(0, "String", { fg = c._c5, bg = 'NONE' })
-  hl(0, "Character", { fg = c._c5, bg = 'NONE' })
-  hl(0, "Number", { fg = c._c6, bg = 'NONE' })
-  hl(0, "Float", { fg = c._c6, bg = 'NONE' })
-  hl(0, "Boolean", { fg = c._c6, bg = 'NONE' })
-  hl(0, "Constant", { fg = c._c6, bg = 'NONE' })
-  hl(0, "Type", { fg = c._c2, bg = 'NONE' })
-  hl(0, "Function", { fg = c._c2, bg = 'NONE' })
-  hl(0, "Keyword", { fg = c._c2, bg = 'NONE' })
-  hl(0, "Conditional", { fg = c._c6, bg = 'NONE' })
-  hl(0, "Repeat", { fg = c._c6, bg = 'NONE' })
-  hl(0, "Operator", { fg = c._c3, bg = 'NONE' })
-  hl(0, "PreProc", { fg = c._c2, bg = 'NONE' })
-  hl(0, "Include", { fg = c._c2, bg = 'NONE' })
-  hl(0, "Exception", { fg = c._c2, bg = 'NONE' })
-  hl(0, "StorageClass", { fg = c._c2, bg = 'NONE' })
-  hl(0, "Structure", { fg = c._c2, bg = 'NONE' })
-  hl(0, "Typedef", { fg = c._c2, bg = 'NONE' })
-  hl(0, "Define", { fg = c._c2, bg = 'NONE' })
-  hl(0, "Macro", { fg = c._c2, bg = 'NONE' })
-  hl(0, "Debug", { fg = c.err, bg = 'NONE' })
-  hl(0, "Title", { fg = c._c2, bg = 'NONE', bold=true, })
-  hl(0, "Label", { fg = c._c7, bg = 'NONE' })
-  hl(0, "SpecialChar", { fg = c._c5, bg = 'NONE' })
-  hl(0, "Delimiter", { fg = c._c3, bg = 'NONE' })
+  -- Visual
+  hl(0, "Visual",       { fg = c._c0, bg = c._c2 })
+  hl(0, "VisualNOS",    { fg = 'NONE', bg = c.alt })
+
+  -- Diff
+  hl(0, "DiffText",     { fg = c.alt, bg = c._c2 })
+  hl(0, "DiffAdd",      { fg = c.alt, bg = c._c2 })
+  hl(0, "DiffDelete",   { fg = c.alt, bg = c._c2 })
+  hl(0, "DiffChange",   { fg = c.alt, bg = c._c2, underline=true, })
+
+  -- Match
+  hl(0, "MatchWord",    { fg = 'NONE', bg = 'NONE', underline=true, })
+  hl(0, "MatchParen",   { fg = c._c7, bg = 'NONE', underline=true, })
+  hl(0, "MatchWordCur", { fg = 'NONE', bg = 'NONE', underline=true, })
+  hl(0, "MatchParenCur",{ fg = 'NONE', bg = 'NONE', underline=true, })
+
+  -- Miscellaneous 
+  hl(0, "LineNr",       { fg = c._c6, bg = 'NONE' })
+  hl(0, "Conceal",      { fg = c._c6, bg = 'NONE' })
+  hl(0, "WildMenu",     { fg = c._c7, bg = c._c2 })
+  hl(0, "Directory",    { fg = c._c7, bg = 'NONE' })
+  hl(0, "VertSplit",    { fg = c.alt, bg = c._c0 })
+  hl(0, "QkFixLine",    { fg = 'NONE', bg = c._c2 })
+  hl(0, "FloatBoder",   { fg = c._c6, bg = c.alt })
+  hl(0, "Whitespace",   { fg = c._c0, bg = 'NONE' })
+  hl(0, "SpecialKey",   { fg = c._c2, bg = 'NONE', bold=true, })
+
+--------------------------------------------------------
+----- search and change --------------------------------
+--------------------------------------------------------
+
+  -- Search
+  hl(0, "Search",       { fg = c._c0, bg = c._c5 })
+  hl(0, "IncSearch",    { fg = c._c0, bg = c._c6 })
+  hl(0, "Substitute",   { fg = c._c0, bg = c._c6 })
+
+  -- Tabline
+  hl(0, "TabLine",      { fg = c._c8, bg = c._c0 })
+  hl(0, "TabLineSel",   { fg = c._c7, bg = c._c0 })
+  hl(0, "TabLineFill",  { fg = c._c0, bg = c._c0 })
+
+  -- Miscellaneous 
+  hl(0, "NonText",      { fg = c._c0, bg = 'NONE' })
+  hl(0, "MoreMsg",      { fg = c._c6, bg = 'NONE' })
+  hl(0, "Question",     { fg = c._c6, bg = 'NONE' })
+  hl(0, "EndOfBuffer",  { fg = c._c0, bg = 'NONE' })
+
+--------------------------------------------------------
+----- Code ---------------------------------------------
+--------------------------------------------------------
+
+  hl(0, "cLabel",       { fg = c.var, bg = 'NONE' })
+  hl(0, "cBlock",       { fg = c.var, bg = 'NONE' })
+
+  hl(0, "Comment",      { fg = c._c6, bg = 'NONE' })
+  hl(0, "Variable",     { fg = c._c2, bg = 'NONE' })
+  hl(0, "String",       { fg = c._c3, bg = 'NONE' })
+  hl(0, "Character",    { fg = c._c5, bg = 'NONE' })
+  hl(0, "Number",       { fg = c.num, bg = 'NONE' })
+  hl(0, "Float",        { fg = c.num, bg = 'none' })
+
+  hl(0, "boolean",      { fg = c.var, bg = 'none' })
+  hl(0, "constant",     { fg = c.var, bg = 'none' })
+  hl(0, "type",         { fg = c.var, bg = 'none' })
+
+  hl(0, "function",     { fg = c._c2, bg = 'none' })
+  hl(0, "keyword",      { fg = c._c2, bg = 'none' })
+  hl(0, "conditional",  { fg = c._c1, bg = 'none' })
+  hl(0, "repeat",       { fg = c._c1, bg = 'none' })
+  hl(0, "operator",     { fg = c._c3, bg = 'NONE' })
+  hl(0, "PreProc",      { fg = c._c2, bg = 'NONE' })
+  hl(0, "Include",      { fg = c._c2, bg = 'NONE' })
+  hl(0, "Exception",    { fg = c.var, bg = 'NONE' })
+  hl(0, "StorageClass", { fg = c.var, bg = 'NONE' })
+  hl(0, "Structure",    { fg = c.var, bg = 'NONE' })
+  hl(0, "Typedef",      { fg = c._c2, bg = 'NONE' })
+  hl(0, "Define",       { fg = c._c2, bg = 'NONE' })
+  hl(0, "Macro",        { fg = c._c2, bg = 'NONE' })
+  hl(0, "Debug",        { fg = c.err, bg = 'NONE' })
+  hl(0, "Title",        { fg = c._c2, bg = 'NONE', bold=true, })
+  hl(0, "Label",        { fg = c._c7, bg = 'NONE' })
+  hl(0, "SpecialChar",  { fg = c._c5, bg = 'NONE' })
+  hl(0, "Delimiter",    { fg = c._c3, bg = 'NONE' })
+  hl(0, "Tag",          { fg = c._c2, bg = 'NONE' })
+  hl(0, "Bold",         { fg = 'NONE', bg = 'NONE', bold=true, })
+  hl(0, "Italic",       { fg = 'NONE', bg = 'NONE', italic=true, })
+  hl(0, "Underlined",   { fg = 'NONE', bg = 'NONE', underline=true, })
+  hl(0, "Ignore",       { fg = c._c2, bg = 'NONE', bold=true, })
+  hl(0, "Todo",         { fg = c._c2, bg = 'NONE', bold=true, })
+  hl(0, "Error",        { fg = c.err, bg = 'NONE', bold=true, })
+  hl(0, "Statement",    { fg = c._c2, bg = 'NONE' })
+  hl(0, "Identifier",   { fg = c._c7, bg = 'NONE' })
+  hl(0, "PreCondit",    { fg = c._c2, bg = 'NONE' })
+  hl(0, "Special",      { fg = c._c6, bg = 'NONE' })
   hl(0, "SpecialComment", { fg = c._c3, bg = 'NONE' })
-  hl(0, "Tag", { fg = c._c2, bg = 'NONE' })
-  hl(0, "Bold", { fg = 'NONE', bg = 'NONE', bold=true, })
-  hl(0, "Italic", { fg = 'NONE', bg = 'NONE', italic=true, })
-  hl(0, "Underlined", { fg = 'NONE', bg = 'NONE', underline=true, })
-  hl(0, "Ignore", { fg = c._c2, bg = 'NONE', bold=true, })
-  hl(0, "Todo", { fg = c._c2, bg = 'NONE', bold=true, })
-  hl(0, "Error", { fg = c.err, bg = 'NONE', bold=true, })
-  hl(0, "Statement", { fg = c._c2, bg = 'NONE' })
-  hl(0, "Identifier", { fg = c._c7, bg = 'NONE' })
-  hl(0, "PreCondit", { fg = c._c2, bg = 'NONE' })
-  hl(0, "Special", { fg = c._c6, bg = 'NONE' })
 
-  -- Treesitter
+--------------------------------------------------------
+----- Treesitter ---------------------------------------
+--------------------------------------------------------
+
   hl(0, "TSComment", { link = 'Comment' })
   hl(0, "TSVariable", { link = 'Variable' })
   hl(0, "TSString", { link = 'String' })
@@ -209,7 +255,7 @@ theme.set_highlights = function()
   hl(0, "WhichKeySeperator", { fg = c._c5, bg = 'NONE' })
   hl(0, "WhichKeyGroup", { fg = c._c2, bg = 'NONE' })
   hl(0, "WhichKeyDesc", { fg = c._c7, bg = 'NONE' })
-  hl(0, "WhichKeyFloat", { fg = 'NONE', bg = c.alt_bg })
+  hl(0, "WhichKeyFloat", { fg = 'NONE', bg = c.alt })
 
   -- Git
   hl(0, "SignAdd", { fg = c._c2, bg = 'NONE' })
@@ -220,7 +266,7 @@ theme.set_highlights = function()
   hl(0, "GitSignsDelete", { fg = c._c2, bg = 'NONE' })
 
   -- LSP
-  hl(0, "DiagnosticHint", { fg = c._c1, bg = 'NONE' })
+  hl(0, "DiagnosticHint", { fg = c._c5, bg = 'NONE' })
   hl(0, "DiagnosticInfo", { fg = c._c7, bg = 'NONE' })
   hl(0, "DiagnosticWarn", { fg = c.err, bg = 'NONE' })
   hl(0, "DiagnosticError", { fg = c.err, bg = 'NONE' })
@@ -294,7 +340,7 @@ theme.set_highlights = function()
   hl(0, "TelescopeSelectionCaret", { fg = c.err, bg = c._c2 })
   hl(0, "TelescopeMatching", { fg = c._c2, bg = 'NONE', bold=true, italic=true, })
   hl(0, "TelescopeBorder", { fg = c._c3, bg = 'NONE' })
-  hl(0, "TelescopeNormal", { fg = c._c7, bg = c.alt_bg })
+  hl(0, "TelescopeNormal", { fg = c._c7, bg = c.alt })
   hl(0, "TelescopePromptTitle", { fg = c._c6, bg = 'NONE' })
   hl(0, "TelescopePromptPrefix", { fg = c._c1, bg = 'NONE' })
   hl(0, "TelescopeResultsTitle", { fg = c._c6, bg = 'NONE' })
@@ -305,8 +351,8 @@ theme.set_highlights = function()
   -- NvimTree
   hl(0, "NvimTreeFolderIcon", { link = 'Directory' })
   hl(0, "NvimTreeIndentMarker", { fg = c._c8, bg = 'NONE' })
-  hl(0, "NvimTreeNormal", { fg = c._c7, bg = c.alt_bg })
-  hl(0, "NvimTreeVertSplit", { fg = c.alt, bg = c.alt_bg })
+  hl(0, "NvimTreeNormal", { fg = c._c7, bg = c.alt })
+  hl(0, "NvimTreeVertSplit", { fg = c.alt, bg = c.alt })
   hl(0, "NvimTreeFolderName", { link = 'Directory' })
   hl(0, "NvimTreeOpenedFolderName", { fg = c.folder_blue, bg = 'NONE', bold=true, italic=true, })
   hl(0, "NvimTreeEmptyFolderName", { fg = c._c7, bg = 'NONE', italic=true, })
@@ -314,7 +360,7 @@ theme.set_highlights = function()
   hl(0, "NvimTreeImageFile", { fg = c._c8, bg = 'NONE' })
   hl(0, "NvimTreeSpecialFile", { fg = c._c6, bg = 'NONE' })
   hl(0, "NvimTreeEndOfBuffer", { fg = c.alt, bg = 'NONE' })
-  hl(0, "NvimTreeCursorLine", { fg = 'NONE', bg = c.bg })
+  hl(0, "NvimTreeCursorLine", { fg = 'NONE', bg = c._c0 })
   hl(0, "NvimTreeGitStaged", { fg = c._c2, bg = 'NONE' })
   hl(0, "NvimTreeGitNew", { fg = c._c2, bg = 'NONE' })
   hl(0, "NvimTreeGitRenamed", { fg = c._c2, bg = 'NONE' })
@@ -326,37 +372,37 @@ theme.set_highlights = function()
   hl(0, "NvimTreeExecFile", { fg = '#9FBA89', bg = 'NONE' })
 
   -- Lir
-  hl(0, "LirFloatNormal", { fg = c._c7, bg = c.alt_bg })
+  hl(0, "LirFloatNormal", { fg = c._c7, bg = c.alt })
   hl(0, "LirDir", { link = 'Directory' })
   hl(0, "LirSymLink", { fg = c._c2, bg = 'NONE' })
   hl(0, "LirEmptyDirText", { fg = c._c6, bg = 'NONE', italic=true, })
 
   -- Buffer
-  hl(0, "BufferCurrent", { fg = c._c7, bg = c.bg })
-  hl(0, "BufferCurrentIndex", { fg = c._c7, bg = c.bg })
-  hl(0, "BufferCurrentMod", { fg = c._c7, bg = c.bg })
-  hl(0, "BufferCurrentSign", { fg = c._c1, bg = c.bg })
+  hl(0, "BufferCurrent", { fg = c._c8, bg = c._c0 })
+  hl(0, "BufferCurrentIndex", { fg = c._c7, bg = c._c0 })
+  hl(0, "BufferCurrentMod", { fg = c._c7, bg = c._c0 })
+  hl(0, "BufferCurrentSign", { fg = c._c1, bg = c._c0 })
   hl(0, "BufferCurrentTarget", { fg = c.err, bg = c._c0, bold=true, })
-  hl(0, "BufferVisible", { fg = c._c7, bg = c.bg })
-  hl(0, "BufferVisibleIndex", { fg = c._c7, bg = c.bg })
-  hl(0, "BufferVisibleMod", { fg = c._c7, bg = c.bg })
-  hl(0, "BufferVisibleSign", { fg = c._c6, bg = c.bg })
+  hl(0, "BufferVisible", { fg = c._c7, bg = c._c0 })
+  hl(0, "BufferVisibleIndex", { fg = c._c7, bg = c._c0 })
+  hl(0, "BufferVisibleMod", { fg = c._c7, bg = c._c0 })
+  hl(0, "BufferVisibleSign", { fg = c._c6, bg = c._c0 })
   hl(0, "BufferVisibleTarget", { fg = c.err, bg = c._c0, bold=true, })
-  hl(0, "BufferInactive", { fg = c._c6, bg = c.alt_bg })
-  hl(0, "BufferInactiveIndex", { fg = c._c6, bg = c.alt_bg })
-  hl(0, "BufferInactiveMod", { fg = c._c7, bg = c.alt_bg })
-  hl(0, "BufferInactiveSign", { fg = c._c6, bg = c.alt_bg })
+  hl(0, "BufferInactive", { fg = c._c6, bg = c.alt })
+  hl(0, "BufferInactiveIndex", { fg = c._c6, bg = c.alt })
+  hl(0, "BufferInactiveMod", { fg = c._c7, bg = c.alt })
+  hl(0, "BufferInactiveSign", { fg = c._c6, bg = c.alt })
   hl(0, "BufferInactiveTarget", { fg = c.err, bg = c.alt, bold=true, })
 
   -- StatusLine
-  hl(0, "StatusLine", { fg = c._c8, bg = c.bg })
+  hl(0, "StatusLine", { fg = c._c8, bg = c._c0 })
   hl(0, "StatusLineNC", { fg = "NONE", bg = "NONE" })
   hl(0, "StatusLineSeparator", { fg = c._c0, bg = 'NONE' })
   hl(0, "StatusLineTerm", { fg = c._c0, bg = 'NONE' })
   hl(0, "StatusLineTermNC", { fg = c._c0, bg = 'NONE' })
 
   -- IndentBlankline
-  hl(0, "IndentBlanklineContextChar", { fg = c._c8, bg = 'NONE' })
+  hl(0, "IndentBlanklineContextChar", { fg = c._c7, bg = 'NONE' })
   hl(0, "IndentBlanklineContextStart", { fg = 'NONE', bg = 'NONE', underline=true, })
   hl(0, "IndentBlanklineChar", { fg = c.alt, bg = 'NONE' })
 
@@ -366,14 +412,14 @@ theme.set_highlights = function()
   hl(0, "DashboardFooter", { fg = c._c2, bg = 'NONE' })
 
   -- DiffView
-  hl(0, "DiffViewNormal", { fg = c._c6, bg = c.alt_bg })
+  hl(0, "DiffViewNormal", { fg = c._c6, bg = c.alt })
   hl(0, "DiffviewStatusAdded", { fg = c._c2, bg = 'NONE' })
   hl(0, "DiffviewStatusModified", { fg = c._c2, bg = 'NONE' })
   hl(0, "DiffviewStatusRenamed", { fg = c._c2, bg = 'NONE' })
   hl(0, "DiffviewStatusDeleted", { fg = c._c2, bg = 'NONE' })
   hl(0, "DiffviewFilePanelInsertion", { fg = c._c2, bg = 'NONE' })
   hl(0, "DiffviewFilePanelDeletion", { fg = c._c2, bg = 'NONE' })
-  hl(0, "DiffviewVertSplit", { fg = 'NONE', bg = c.bg })
+  hl(0, "DiffviewVertSplit", { fg = 'NONE', bg = c._c0 })
 
   -- Bookmarks
   hl(0, "BookmarkSign", { fg = c._c2, bg = 'NONE' })
@@ -504,7 +550,7 @@ theme.set_highlights = function()
   hl(0, "NotifyTRACETitle", { fg = c._c2, bg = 'NONE' })
 
   -- TreesitterContext
-  hl(0, "TreesitterContext", { fg = 'NONE', bg = c.alt_bg })
+  hl(0, "TreesitterContext", { fg = 'NONE', bg = c.alt })
 
   -- Hop
   hl(0, "HopNextKey", { fg = '#4ae0ff', bg = 'NONE' })

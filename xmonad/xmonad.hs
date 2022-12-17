@@ -20,12 +20,13 @@ import XMonad.Hooks.EwmhDesktops
 ----------- variables ------------
 ----------------------------------
 
-myTerminal = "kitty" :: String 
-myBorderWidth = 2 :: Dimension
-myNormColor = "#2b2c2a" ::String
-myFocusColor = "#d8ded3" ::String
+myTerminal    = "kitty"   :: String 
+myBorderWidth = 2         :: Dimension
+myNormColor   = "#2b2c2a" :: String
+myFocusColor  = "#d8ded3" :: String
 
-myKeys ::  [(String, X ())]
+myKeys :: [(String, X())]
+
 myKeys =
   [
 
@@ -34,15 +35,15 @@ myKeys =
     ("M-f", spawn "thunar"), -- file system
 
   -- utilities -- 
-    ("M-p", spawn "rofi -show"), -- rofi
-    ("M-s", spawn "scrot"), -- screenshot
+    ("M-p", spawn "rofi -show drun"), -- rofi
+    ("M-s", spawn "scrot -u"), -- screenshot
     ("M-S-s", spawn "scrot -s"), --screenshot 
     ("M-r", spawn "redshift -O 4000"), -- red screen
     ("M-S-r", spawn "redshift -x"), -- red screen
 
   -- actions 
-    ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%"), -- vol up
-    ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"), -- vol down
+    ("<XF86AudioRaiseVolume>", spawn "amixer sset Master 5+"), -- vol up
+    ("<XF86AudioLowerVolume>", spawn "amixer sset Master 5-"), -- vol down
     ("M-<XF86AudioRaiseVolume>", spawn "brightnessctl set 5%+"), -- brightness up
     ("M-<XF86AudioLowerVolume>", spawn "brightnessctl set 5%-"), -- brightness down
     ("<XF86AudioNext>", spawn "playerctl next"), -- mute / unmute
@@ -58,7 +59,7 @@ myLayoutHook =
   ||| Grid
   ||| Full
 
-myStartupHook :: X ()
+myStartupHook :: X()
 myStartupHook = do
 
 -- keyboard layout
@@ -71,14 +72,12 @@ myStartupHook = do
 main :: IO ()
 main = xmonad $ ewmhFullscreen $ ewmh $ def 
   {
-    terminal = myTerminal,
-    borderWidth = myBorderWidth,
-    normalBorderColor = myNormColor,
-    focusedBorderColor = myFocusColor,
-    layoutHook = myLayoutHook,
-    manageHook = manageHook def <+> manageDocks,
-    startupHook = myStartupHook
+    terminal            = myTerminal,
+    borderWidth         = myBorderWidth,
+    normalBorderColor   = myNormColor,
+    focusedBorderColor  = myFocusColor,
+    layoutHook          = myLayoutHook,
+    manageHook          = manageHook def <+> manageDocks,
+    startupHook         = myStartupHook
   }
   `additionalKeysP` myKeys
-
-

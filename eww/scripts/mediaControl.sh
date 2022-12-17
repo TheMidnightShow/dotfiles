@@ -9,7 +9,7 @@ song_name()
   if [ "$STATUS" == 'Playing' ] || [ "$STATUS" == 'Paused' ];then
     echo -e "$(playerctl metadata title)"
   else
-    echo -e "?"
+    echo -e "No music..."
   fi
 }
 
@@ -33,12 +33,12 @@ update_cover()
   if [ "$STATUS" == 'Playing' ] || [ "$STATUS" == 'Paused' ];then
     if [ "$STATUS" == 'Playing' ];then 
       (get_cover) &>/dev/null
-      echo -e "(box :halign \"center\" :class \"userImage\" :style \"background-image: url(\'./assets/cover.png\');\")" 
+      echo -e "(box :halign \"center\" :class \"mediaImage\" :style \"background-image: url(\'./assets/cover.png\');\")" 
     else
-      echo -e "(box :halign \"center\" :class \"userImage\" :style \"background-image: url(\'./assets/cover.png\');\")" 
+      echo -e "(box :halign \"center\" :class \"mediaImage\" :style \"background-image: url(\'./assets/cover.png\');\")" 
     fi
   else
-    echo -e "(box :halign \"center\" :class \"userImage\")" 
+    echo -e "(box :halign \"center\" :class \"mediaImage\")" 
   fi
 }
 

@@ -2,8 +2,8 @@
 
 add_newline = true 
 
-format = """[](fg:#d8ded3)[  $directory](bg:#d8ded3 fg:#0f080e)[](fg:#d8ded3) [](fg:#d8ded3)[$git_branch /$git_metrics ](bg:#d8ded3 fg:#0f080e)[](fg:#d8ded3) 
-> """
+format = """[](fg:#d8ded3)[ $directory](bg:#d8ded3 fg:#0f080e)[](fg:#d8ded3) [](fg:#d8ded3)[$git_branch /$git_metrics ](bg:#d8ded3 fg:#0f080e)[](fg:#d8ded3) 
+ """
 
 right_format = "[](fg:#d8ded3)[ $status](bg:#d8ded3 fg:#0f080e)[](fg:#d8ded3)"
 

@@ -18,10 +18,20 @@ update_workspace()
     if wmctrl -l | grep --regex '.*\s\+'"$ID"'\s\+.*' >/dev/null; 
     then 
       button_class="occupied"
-      button_name=""
+      if [ $active_class = "active" ];
+      then
+        button_name=""
+      else
+        button_name=""
+      fi
     else
       buttom_class="empty"
-      button_name=""    
+      if [ $active_class = "active" ];
+      then
+        button_name=""    
+      else
+        button_name=""
+      fi
     fi
 
     buffered+="(button :class \"$button_class $active_class\" :onclick \"wmctrl -s $ID\" \"$button_name\")"

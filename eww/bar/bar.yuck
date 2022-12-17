@@ -7,28 +7,6 @@
   (literal 
     :content workspace))
 
-;; ---------------------------------------------- ;;
-;; ---------------- bottom-widget --------------- ;;
-;; ---------------------------------------------- ;;
-
-(defwidget brightness []
-  (literal :content brightness))
-
-;; -----------------------------------------------------------------------
-;; -----------------------------------------------------------------------
-
-(defwidget volume []
-  (literal :content volume))
-
-;; -----------------------------------------------------------------------
-;; -----------------------------------------------------------------------
-
-(defwidget memory []
-  (literal :content memory))
-
-;; -----------------------------------------------------------------------
-;; -----------------------------------------------------------------------
-
 (defwidget cpu []
   (box
     :orientation "v"
@@ -39,14 +17,6 @@
 
 ;; -----------------------------------------------------------------------
 ;; -----------------------------------------------------------------------
-
-(defwidget today []
-
-  (literal :content today))
-
-;; -----------------------------------------------------------------------
-;; -----------------------------------------------------------------------
-
 
 (defwidget bottom []
 
@@ -82,8 +52,9 @@
 ;; ---------------------------------------------- ;;
 
 (defwidget hour []
-
-  (literal :content hour))
+(button
+  :onclick "./scripts/dashboard.sh"
+  (literal :content hour)))
 
 ;; -----------------------------------------------------------------------
 ;; -----------------------------------------------------------------------
@@ -103,32 +74,6 @@
 ;; -----------------------------------------------------------------------
 
 
-(defwidget top []
-
-	(eventbox	
-    :onhover "${eww} update top=true"	
-		:onhoverlost "${eww} update top=false" 
-
-	  (box		
-      :orientation "v"					
-			:space-evenly "false" 	 
-			:vexpand "false" 	
-			:class "topmenu"
-
-      (hour)
-      
-	    (revealer	
-        :transition "slidedown"				
-				:reveal top	 
-				:duration "650ms"
-
-	    (box		
-        :orientation "v"					
-		    :space-evenly "false"
-	      (today)
-        (battery)
-        (updates)
-        )))))
 
 ;; ---------------------------------------------- ;;
 ;; ----------------- main widget ---------------- ;;
@@ -141,18 +86,14 @@
     :class "bar"
 
     (box 
-      :class "segment-top" 
-      :valign "start" 
-      (top))
-
-    (box 
-      :class "segment-center" 
-      :valign "center" 
+      :orientation "v"
       (workspace))
+
+    (box)
     
     (box 
-      :class "segment-botton" 
       :valign "end" 
-      (bottom))
+      (hour))
   )
+  
 )

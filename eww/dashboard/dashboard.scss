@@ -1,26 +1,67 @@
-
-.myDashboard {
-
-  background: none;
-
+.myCalendar {
+  padding: 26px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid $_c2;
 }
 
-.userData {
-
-  padding: 4px 15px;
-  background: #222222;
-  color: #ebdbb2;
-
-  min-width: 225px;
-  border-radius:  5px;
-  border: 2px solid #ebdbb2;
+calendar {
+  &:selected {
+    background: $_c2;
+    color: $_c0;
+    border-radius: 5px;
+  }
   
 }
 
+.time {
+  font-size: 22px;
+}
+
+.metricBox {
+  border-radius: 5px;
+  border: 2px solid $_c2;
+}
+
+.metricData {
+  font-size: 20px;
+  padding: 0px 20px 0px 10px;
+}
+
+.metricIcon {
+  font-size: 22px;
+  padding: 0px 25px 0px 10px;
+  background: $_c2;
+  color: $_c0;
+}
+
+.powerButton {
+  border-radius: 5px;
+  border: 2px solid $_c2;
+  padding: 2px 48px 2px 48px;
+}
+
+.mediaPlayer {
+  background: $_c0;
+  border: 2px solid $_c2;
+  border-radius: 5px;
+}
+
+.dashboard {  
+  border-radius: 5px;
+  border: 2px solid $_c2;
+  background: $_c0; 
+  padding: 10px 10px 10px 10px;
+}
+
+.userData {
+  background: $_c0;
+  color: $_c2;
+}
+
 .myUser {
-
-  background: none;
-
+  border-radius: 5px;
+  border: 2px solid $_c2;
 }
 
 /* --------------------------------------------- */
@@ -28,87 +69,56 @@
 /* --------------------------------------------- */
 
 .userImage {
-
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
-  border: 2px solid #ebdbb2;
-  border-radius: 30%;
-  min-width: 110px;
-  min-height: 110px;
-
+  border-radius: 5px;
+  min-width: 100px;
+  min-height: 95px;
 }
 
-.userBox {
+.mediaImage {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-  background: #222222;
-  padding: 10px;
-
-  border: 2px solid #ebdbb2;
-  border-radius: 30%;
-
+  min-width: 150px;
+  min-height: 100px;
 }
+
 
 /* --------------------------------------------- */
 /* ---------------- media player --------------- */
 /* --------------------------------------------- */
 
 .mediaButtons {
-
-  padding: 1px 8px;
-  background: #222222;
-  color: #ebdbb2;
-
-  border: 2px solid #ebdbb2;
-  border-radius: 30%;
-
+  margin: 5px 0px;
+  padding: 0px 15px;
+  background: $_c0;
+  color: $_c2;
 }
 
 .mediaButtons:hover {
-
-  background: #ebdbb2;
-  color: #222222;
-
-  border-radius: 30%;
-
+  font-size: 20px;
 }
 
 .mediaSong {
-
-  padding: 4px 15px;
-  background: #222222;
-  color: #ebdbb2;
-  
-  min-width: 200px;
-  border-radius:  5px;
-  border: 2px solid #ebdbb2
-
+  background: $_c0;
+  color: $_c2;
+  margin: 0px 10px;
 }
 
 .mediaProgress {
-
-  padding: 4px 15px;
-  background: #222222;
-
-  border-radius: 5px;
-  border: 3px solid #ebdbb2;
-
+  background: $_c0;
 }
 
 scale.mediaProgress trough {
-
-  background: #83a598;
-
-  border-radius: 30px;
-  min-width: 100px;
-  min-height: 4px;
-
+  background: $_c6;
+  min-width: 350px;
+  min-height: 2px;
 }
 
 scale.mediaProgress trough highlight {
-
-  border-radius: 30px;
-
-  background: #ebdbb2; 
+  background: $_c2; 
 }
