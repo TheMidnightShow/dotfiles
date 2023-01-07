@@ -5,31 +5,29 @@ end
 
 local dashboard = require("alpha.themes.dashboard")
 
+
+
 dashboard.section.header.val = {
-	[[                                                           ]],
-	[[                                                           ]],
-	[[                                                           ]],
-	[[                                                           ]],
-	[[                                          /$$              ]],
-	[[                                         |__/              ]],
-	[[ /$$$$$$$   /$$$$$$   /$$$$$$  /$$    /$$ /$$ /$$$$$$/$$$$ ]],
-	[[| $$__  $$ /$$__  $$ /$$__  $$|  $$  /$$/| $$| $$_  $$_  $$]],
-	[[| $$  \ $$| $$$$$$$$| $$  \ $$ \  $$/$$/ | $$| $$ \ $$ \ $$]],
-	[[| $$  | $$| $$_____/| $$  | $$  \  $$$/  | $$| $$ | $$ | $$]],
-	[[| $$  | $$|  $$$$$$$|  $$$$$$/   \  $/   | $$| $$ | $$ | $$]],
-	[[|__/  |__/ \_______/ \______/     \_/    |__/|__/ |__/ |__/]],
-	[[                                                           ]],
-	[[                                                           ]],
+	[[                                     ]],
+	[[                                     ]],
+	[[                                     ]],
+	[[   ██ ███   ███ ▀▀▀                ██]],
+	[[  ██  ███   ███ ███ ███████████   ██ ]],
+	[[ ██    ███  ███ ███ ███ ███ ███  ██  ]],
+	[[██      ██████   ██ ███  ██  ██ ██   ]],
+	[[                                     ]],
+	[[                                     ]],
 }
+
 dashboard.section.buttons.val = {
-	dashboard.button("f", "   find", ":Telescope find_files <CR>"),
-	dashboard.button("e", "   new", ":ene <BAR> startinsert <CR>"),
-	dashboard.button("r", "   recent", ":Telescope oldfiles <CR>"),
-	dashboard.button("q", "   quit", ":qa<CR>"),
+	dashboard.button("f", "[] search", ":Telescope find_files <CR>"),
+	dashboard.button("r", "[﬚] recent", ":Telescope oldfiles <CR>"),
+	dashboard.button("e", "[] create", ":ene <BAR> startinsert <CR>"),
+	dashboard.button("q", "[] leave", ":qa<CR>"),
 }
 
 local function footer()
-	return ":(){ : | &: };:"
+	return "#include <midnight>"
 end
 
 dashboard.section.footer.val = footer()

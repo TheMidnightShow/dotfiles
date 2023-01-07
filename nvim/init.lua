@@ -1,5 +1,5 @@
-require('impatient')
 require('user.plugins')
+require('impatient')
 
 require('user.keybinds')
 require('user.settings')

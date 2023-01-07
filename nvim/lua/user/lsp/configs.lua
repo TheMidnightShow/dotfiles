@@ -5,7 +5,7 @@ end
 
 local lspconfig = require("lspconfig")
 
-local servers = { "ccls", "clangd", "sumneko_lua" }
+local servers = { "clangd", "sumneko_lua" }
 
 lsp_installer.setup({
 	ensure_installed = servers,

@@ -21,14 +21,13 @@ import XMonad.Hooks.EwmhDesktops
 ----------------------------------
 
 myTerminal    = "kitty"   :: String 
-myBorderWidth = 2         :: Dimension
-myNormColor   = "#2b2c2a" :: String
-myFocusColor  = "#d8ded3" :: String
+myNormColor   = "#669dac" :: String
+myFocusColor  = "#c9c9c9" :: String
+myBorderWidth = 3         :: Dimension
 
 myKeys :: [(String, X())]
 
-myKeys =
-  [
+myKeys = [
 
   -- programs -- 
     ("M-m", spawn "firefox"), -- firefox
@@ -55,7 +54,7 @@ myKeys =
 
 myLayoutHook = 
   avoidStruts $ 
-  gaps [(U,15), (D,15), (R,15), (L,15)] $ Tall 1 (3/100) (1/2) 
+  gaps [(U,0), (D,0), (R,0), (L,0)] $ Tall 1 (3/100) (1/2) 
   ||| Grid
   ||| Full
 

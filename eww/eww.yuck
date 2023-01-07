@@ -25,7 +25,7 @@
   :anchor "top left"
 
   :reserve (struts 
-    :distance "42px" 
+    :distance "54px" 
     :side "left")
 
   :wm-ignore true

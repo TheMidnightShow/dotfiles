@@ -2,10 +2,10 @@
 
 add_newline = true 
 
-format = """[](fg:#d8ded3)[ $directory](bg:#d8ded3 fg:#0f080e)[](fg:#d8ded3) [](fg:#d8ded3)[$git_branch /$git_metrics ](bg:#d8ded3 fg:#0f080e)[](fg:#d8ded3) 
- """
+format = """[](fg:#c9c9c9)[ $directory](bg:#c9c9c9 fg:#0f080e)[](fg:#c9c9c9) 
+> """
 
-right_format = "[](fg:#d8ded3)[ $status](bg:#d8ded3 fg:#0f080e)[](fg:#d8ded3)"
+right_format = "[](fg:#c9c9c9)[$git_branch /$git_metrics ](bg:#c9c9c9 fg:#0f080e)[](fg:#c9c9c9) [](fg:#c9c9c9)[ $status](bg:#c9c9c9 fg:#0f080e)[](fg:#c9c9c9)"
 
 [status]
 symbol = " "
@@ -15,14 +15,14 @@ format = '$symbol'
 
 [directory]
 disabled = false
-format = "[$path](bg:#d8ded3 fg:#0f080e) "
+format = "[$path](bg:#c9c9c9 fg:#0f080e) "
 
 [git_branch]
 symbol = ' '
-format = '[$symbol$branch](bg:#d8ded3 fg:#0f080e)'
+format = '[$symbol$branch](bg:#c9c9c9 fg:#0f080e)'
 
 [git_metrics]
 disabled = false
 only_nonzero_diffs = false
-format = '[  $added  $deleted](bg:#d8ded3 fg:#0f080e)'
+format = '[  $added  $deleted](bg:#c9c9c9 fg:#0f080e)'
 
