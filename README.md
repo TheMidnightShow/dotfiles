@@ -11,4 +11,6 @@
 
 ## screenshots:
 
-![setup](https://cdn.discordapp.com/attachments/877252078521688124/1052971801271095326/2022-12-12-162041_2559x1080_scrot.png)
+![setup](https://cdn.discordapp.com/attachments/877252078521688124/1061131287273938994/2023-01-06-215412_1919x1079_scrot.png)
+![setup](https://cdn.discordapp.com/attachments/877252078521688124/1061131348670173214/v_i_m.png)
+![setup](https://cdn.discordapp.com/attachments/877252078521688124/1061539958722146336/2023-01-08-005818_1860x1074_scrot.png)
