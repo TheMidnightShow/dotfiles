@@ -2,22 +2,25 @@ local hide_in_width = function()
   return vim.fn.winwidth(0) > 80
 end
 
-
-
-local branch = {
+local branch =
+{
 	"branch",
+  bg = "#0f080e",
+  fg = "#c9c9c9",
 	icons_enabled = true,
 	icon = "",
 }
 
-local diff = {
+local diff =
+{
 	"diff",
 	colored = false,
-	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+	symbols = { added = " ", modified = " ", removed = " " },
   cond = hide_in_width
 }
 
-local diagnostics = {
+local diagnostics =
+{
   "diagnostics",
   sources = { "nvim_diagnostic"},
   sections = { "error", "warn" },
@@ -27,33 +30,46 @@ local diagnostics = {
 	always_visible = true,
 }
 
-local mode = {
+local mode =
+{
   "mode",
+  bg = "#c9c9c9",
+  fg = "#0f080e",
   fmt = function(str)
     return "  " .. str .. " "
   end,
 }
 
-local location = {
+local location =
+{
   "location",
   fmt = function(str)
     return "*" .. str .. " "
   end,
 }
 
+local filetype =
+{
+  "filetype",
+  fmt = function(str)
+    return "" .. str .. " "
+  end,
+}
+
 local progress = function()
   local current_line = vim.fn.line(".")
   local total_lines = vim.fn.line("$")
-  local chars = {
-  " ········",
-  " ·······",
-  " ······",
-  " ·····",
-  " ····",
-  " ···",
-  " ··",
-  " ·",
-  " "
+  local chars =
+  {
+  " ◼        ",
+  " ◼◼       ",
+  " ◼◼◼      ",
+  " ◼◼◼◼     ",
+  " ◼◼◼◼◼    ",
+  " ◼◼◼◼◼◼   ",
+  " ◼◼◼◼◼◼◼  ",
+  " ◼◼◼◼◼◼◼◼ ",
+  " ◼◼◼◼◼◼◼◼◼"
   }
   local line_ratio = current_line / total_lines
   local index = math.ceil(line_ratio * #chars)
@@ -61,12 +77,13 @@ local progress = function()
 end
 
 require('lualine').setup {
-  options = {
+  options =
+  {
     icons_enabled = true,
-    theme = 'iceberg_dark',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {
+    component_separators = { left = ' ▏', right = ' ▏'},
+    section_separators = { left = '▙ ', right = '▟'},
+    disabled_filetypes =
+    {
       "alpha",
       "dashboard",
       "NvimTree",
@@ -77,7 +94,8 @@ require('lualine').setup {
     ignore_focus = {},
     always_divide_middle = true,
     globalstatus = true,
-    refresh = {
+    refresh =
+    {
       statusline = 1000,
       tabline = 1000,
       winbar = 1000,
@@ -86,8 +104,8 @@ require('lualine').setup {
   sections = {
     lualine_a = { mode },
     lualine_b = { branch, diff, diagnostics },
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_c = {},
+    lualine_x = {'encoding', 'fileformat', filetype},
     lualine_y = { location },
     lualine_z = { progress }
   },

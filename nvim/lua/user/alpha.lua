@@ -1,14 +1,9 @@
-local status_ok, alpha = pcall(require, "alpha")
-if not status_ok then
-	return
-end
-
+local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 
-
-
-dashboard.section.header.val = {
-	[[                                     ]],
+-- menu title
+dashboard.section.header.val =
+{
 	[[                                     ]],
 	[[                                     ]],
 	[[   ██ ███   ███ ▀▀▀                ██]],
@@ -19,25 +14,22 @@ dashboard.section.header.val = {
 	[[                                     ]],
 }
 
-dashboard.section.buttons.val = {
-	dashboard.button("f", "[] search", ":Telescope find_files <CR>"),
-	dashboard.button("r", "[﬚] recent", ":Telescope oldfiles <CR>"),
-	dashboard.button("e", "[] create", ":ene <BAR> startinsert <CR>"),
-	dashboard.button("q", "[] leave", ":qa<CR>"),
+-- menu navigation buttons
+dashboard.section.buttons.val =
+{
+	dashboard.button("1", "[] search", ":Telescope find_files theme=dropdown<CR>"),
+	dashboard.button("2", "[﬚] recent", ":Telescope oldfiles theme=dropdown<CR>"),
+	dashboard.button("3", "[] create", ":ene <BAR> startinsert <CR>"),
+	dashboard.button("4", "[] leave", ":qa<CR>"),
 }
 
-local function footer()
-	return "#include <midnight>"
-end
+-- menu footer 
+dashboard.section.footer.val = "#include <midnight>"
 
-dashboard.section.footer.val = footer()
-
-dashboard.section.footer.opts.hl = "Type"
-dashboard.section.header.opts.hl = "Include"
+-- menu colors
+dashboard.section.header.opts.hl =  "Float"
 dashboard.section.buttons.opts.hl = "Keyword"
+dashboard.section.footer.opts.hl =  "Keyword"
 
-dashboard.opts.opts.noautocmd = true
-
-vim.cmd([[autocmd User AlphaReady echo '     /Midnight']])
-
+-- setup
 alpha.setup(dashboard.opts)
