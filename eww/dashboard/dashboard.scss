@@ -11,7 +11,6 @@ calendar {
     color: $_c0;
     border-radius: 5px;
   }
-  
 }
 
 .time {
@@ -42,14 +41,20 @@ calendar {
 }
 
 .mediaPlayer {
-  background: $_c0;
+
   border: 2px solid $_c2;
   border-radius: 5px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  min-width: 100px;
+  min-height: 100px;
 }
 
 .dashboard {  
   border-radius: 5px;
-  border: 3px solid $_c2;
+  border: 2px solid $_c2;
   background: $_c0; 
   padding: 10px 10px 10px 10px;
 }
@@ -57,6 +62,7 @@ calendar {
 .userData {
   background: $_c0;
   color: $_c2;
+  margin: 0px 10px;
 }
 
 .myUser {
@@ -75,18 +81,8 @@ calendar {
 
   border-radius: 5px;
   min-width: 100px;
-  min-height: 95px;
-}
-
-.mediaImage {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  min-width: 150px;
   min-height: 100px;
 }
-
 
 /* --------------------------------------------- */
 /* ---------------- media player --------------- */
@@ -95,28 +91,27 @@ calendar {
 .mediaButtons {
   margin: 5px 0px;
   padding: 0px 15px;
-  background: $_c0;
   color: $_c2;
-}
-
-.mediaButtons:hover {
-  font-size: 20px;
+  padding: 0px 0px 0px 10px;
 }
 
 .mediaSong {
-  background: $_c0;
+  padding: 10px 0px 0px 10px;
   color: $_c2;
-  margin: 0px 10px;
+}
+
+.mediaData {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .mediaProgress {
-  background: $_c0;
+  padding: 184px 0px 0px 0px;
 }
 
 scale.mediaProgress trough {
   background: $_c6;
-  min-width: 350px;
-  min-height: 2px;
+  min-width: 200px;
+  min-height: 4px;
 }
 
 scale.mediaProgress trough highlight {

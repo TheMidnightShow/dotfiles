@@ -20,17 +20,17 @@ update_workspace()
       button_class="occupied"
       if [ $active_class = "active" ];
       then
-        button_name=""
+        button_name="[■]"
       else
-        button_name=""
+        button_name="■"
       fi
     else
       buttom_class="empty"
       if [ $active_class = "active" ];
       then
-        button_name=""    
+        button_name="[□]"    
       else
-        button_name=""
+        button_name="□"
       fi
     fi
 

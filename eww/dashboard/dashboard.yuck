@@ -8,10 +8,18 @@
     :spacing 10
     :class "dashboard"
     :space-evenly false
-    (myUser)
-    (metrics)
-    (myCalendar)
-    (myMediaPlayer)
+    (box
+      :spacing 5
+      :orientation "h"
+      (myUser)
+      (metrics)
+    )
+    (box
+      :spacing 5
+      :orientation "h"
+      (myCalendar)
+      (myMediaPlayer)
+    )
     (power)
   )
 )
@@ -21,42 +29,36 @@
 ;; ---------------------------------------------- ;;
 
 
-(defwidget mediaImage []
-  (box
-    (literal 
-      :content mediaControl)))
-
 (defwidget mediaButtons []
   (box
-    :class "mediaButton-box"
+    :class "mediaButtons"
     :space-evenly false
-
+    :spacing 10
     (button 
-      :class "mediaButtons"
       :onclick "./scripts/mediaControl.sh prev"
-      "玲"
+      "◀"
     )
 
     (button 
-      :class "mediaButtons"
       :onclick "./scripts/mediaControl.sh toggle"
-      "懶"
+      "■"
     )
 
     (button 
-      :class "mediaButtons"
       :onclick "./scripts/mediaControl.sh next"
-      "怜"
+      "▶"
     )
   )
 )
 
 (defwidget mediaProgress[]
-  (scale 
-    :class "mediaProgress" 
-    :min 0 
-    :max 101 
-    :value mediaProgress
+  (box
+    (scale 
+      :class "mediaProgress" 
+      :min 0 
+      :max 101 
+      :value mediaProgress
+    )
   )
 )
 
@@ -65,32 +67,27 @@
     :halign "start"
     (label
       :text song
-      :limit-width 12
+      :limit-width 28
       :class "mediaSong"
     )
   )
 )
 
+(defpoll mediaImage :interval "1s" "./scripts/mediaControl.sh update")
 (defwidget myMediaPlayer []
-
   (box
     :class "mediaPlayer"
-    :space-evenly false
-    :orientation "v"
+    :style mediaImage 
     (box
+      :class "mediaData"
+      :orientation "v"
       :space-evenly false
-      :halign "start"
-      :orientation "h"
-      (mediaImage)
-      (box
-        :orientation "v"
-        (mediaSong)
-        (mediaButtons)
-      )
+      (mediaSong)
+      (mediaButtons)
+      (mediaProgress)
     )
-    (mediaProgress)
-
-))
+  )
+)
 
 ;; ---------------------------------------------- ;;
 ;; ------------------- user --------------------- ;;
@@ -101,13 +98,11 @@
   (box
     :orientation "v"
     :valign "center"
-
-    (box
+    (label
       :class "userData"
       :halign "start"
-      username
+      :text "<midnight>" 
     )
-
     (label
       :class "userData"
       :text uptime
@@ -135,7 +130,7 @@
 (defwidget myUser []
   (box
     :space-evenly false
-    :spacing 10
+    :spacing 2
     :class "myUser"
     (userImage)
     (userData)
@@ -173,25 +168,27 @@
 (defwidget power[]
   (box
     :spacing 5
+    :orientation "h"
+    :space-evenly true
     (box
       :class "powerButton"
       (button
         :onclick "poweroff"
-        ""
+        "[off]"
       )
     )
     (box
       :class "powerButton"
       (button
         :onclick "reboot"
-        ""
+        "[res]"
       )
     )
     (box
       :class "powerButton"
       (button
         :onclick "exit"
-        ""
+        "[out]"
       )
     )
   )
@@ -204,14 +201,14 @@
 ;; ---------------------------------------------- ;;
 
 (defpoll updates :interval "1m" "checkupdates | wc -l")
-(defwidget metricBox[]
+(defwidget updates[]
   (box
     :class "metricBox"
     :space-evenly false
     :orientation "h"
     (box
       :class "metricIcon"
-      ""
+      "pkg"
     )
     (box
       :class "metricData"
@@ -226,10 +223,10 @@
 (defwidget battery[]
   (box
     :class "metricBox"
-    :space-evenly false
+    :space-evenly false 
     (box 
       :class "metricIcon"
-      ""
+      "bat"
     )
     (box
       :class "metricData"
@@ -247,7 +244,7 @@
     :space-evenly false
     (box 
       :class "metricIcon"
-      "墳"
+      "vol"
     )
     (box
       :class "metricData"
@@ -263,7 +260,7 @@
     :space-evenly false
     (box 
       :class "metricIcon"
-      "盛"
+      "brg"
     )
     (box
       :class "metricData"
@@ -278,16 +275,10 @@
   (box
     :orientation "v"
     :spacing 5
-    (box
-      :spacing 5
-      (battery)
-      (metricBox)    
-    )
-    (box
-      :spacing 5
-      (volume)
-      (brightness)
-    )
+    (battery)
+    (updates)    
+    (volume)
+    (brightness)
   )
 )
 

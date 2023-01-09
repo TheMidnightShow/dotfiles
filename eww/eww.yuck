@@ -42,7 +42,7 @@
   :geometry (geometry 
     :x -20
     :y 20
-    :anchor "top right")
+    :anchor "center")
 
   :stacking "bg"
 
@@ -80,7 +80,6 @@
 ;; ---------------- dashboard ------------------- ;;
 ;; ---------------------------------------------- ;;
 
-(defpoll mediaControl :interval "1s" "./scripts/mediaControl.sh update")
 (defpoll song :interval "1s" "./scripts/mediaControl.sh name")
 (defpoll mediaProgress :interval "1s" "./scripts/mediaControl.sh progress")
 (defpoll uptime :interval "1s" "echo -e \"$(uptime -p | tr -d ,)\"")
